@@ -305,7 +305,6 @@ jQuery(document).ready(function ($) {
     const $items = $('.external-finder-institution__list-item-body');
     const $btn = $('#external-toggleAll');
     const allClosed = $items.length && $items.filter('.is-close').length === $items.length;
-
     if (allClosed) {
       $btn.addClass('is-close');
     } else {
@@ -330,6 +329,8 @@ jQuery(document).ready(function ($) {
     // 状態を再同期
     updateExternalToggleButtonState();
   });
+  $('.external-finder-institution__list-item-body').addClass('is-close');
+  updateExternalToggleButtonState();
   //=================
   //result
   //=================
@@ -360,23 +361,23 @@ jQuery(document).ready(function ($) {
   $(document).on('click', '.archive-result-table__body-item-cell.cell-request input[type="checkbox"]', function (e) {
     const $checkboxes = $('.archive-result-table__body-item-cell.cell-request input[type="checkbox"]');
     const currentIndex = $checkboxes.index(this);
-    
+
     if (e.shiftKey && lastClickedCheckboxIndex !== -1) {
       // 範囲選択を実行
       const startIndex = Math.min(lastClickedCheckboxIndex, currentIndex);
       const endIndex = Math.max(lastClickedCheckboxIndex, currentIndex);
-      
+
       // 現在クリックされたチェックボックスの状態を基準にする
       const targetState = $(this).is(':checked');
-      
+
       // 範囲内のすべてのチェックボックスを同じ状態にする
       for (let i = startIndex; i <= endIndex; i++) {
         $checkboxes.eq(i).prop('checked', targetState);
       }
-      
+
       // 見た目を更新
       updateCheckedState();
-      
+
       // 全選択ボタンの状態を更新
       const $selectAll = $('#select-all-page');
       if ($checkboxes.length && $checkboxes.filter(':checked').length === $checkboxes.length) {
@@ -385,7 +386,7 @@ jQuery(document).ready(function ($) {
         $selectAll.prop('checked', false);
       }
     }
-    
+
     // 最後にクリックされたチェックボックスのインデックスを更新
     lastClickedCheckboxIndex = currentIndex;
   });
@@ -412,7 +413,7 @@ jQuery(document).ready(function ($) {
       e.preventDefault();
       // CSSで一時的に文字列選択を無効化
       $(this).css('user-select', 'none');
-      
+
       // 少し遅れて元に戻す
       setTimeout(() => {
         $(this).css('user-select', '');
