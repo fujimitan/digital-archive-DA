@@ -1,0 +1,228 @@
+@mixin bl-im {
+  display: block;
+  width: 100%;
+}
+
+@mixin bl-a {
+  display: block;
+
+  img {
+    @include bl-im;
+  }
+}
+
+@mixin tra {
+  transition: all .2s ease 0s;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin tra2 {
+  transition: all .5s ease 0s;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin hoverLike {
+  @include tra;
+
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  &:active {
+    @content;
+  }
+}
+
+@mixin trahv {
+  transition: opacity .3s ease 0s;
+
+  @include hoverLike {
+    opacity: .7;
+    text-decoration: none;
+  }
+}
+
+@mixin trans-o($pro) {
+  transform-origin: $pro;
+  -moz-transform-origin: $pro;
+  -webkit-transform-origin: $pro;
+}
+
+@mixin bgct {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+@mixin min($type, $pc, $sp: $pc) {
+  $sp_size: $sp*$vw;
+  $result: "min(" + ($pc) + "px," + ($sp_size) + "vw)";
+
+  @if($type==fz) {
+    font-size: unquote($pc+"px");
+    font-size: unquote($result);
+  }
+
+  @if($type==mh) {
+    min-height: unquote($pc+"px");
+    min-height: unquote($result);
+  }
+
+  @if($type==mt) {
+    margin-top: unquote($pc+"px");
+    margin-top: unquote($result);
+  }
+
+  @if($type==mb) {
+    margin-bottom: unquote($pc+"px");
+    margin-bottom: unquote($result);
+  }
+
+  @if($type==pt) {
+    padding-top: unquote($pc+"px");
+    padding-top: unquote($result);
+  }
+
+  @if($type==pb) {
+    padding-bottom: unquote($pc+"px");
+    padding-bottom: unquote($result);
+  }
+
+  @if($type==w) {
+    width: unquote($pc+"px");
+    width: unquote($result);
+  }
+}
+
+@function round-decimal($num) {
+  @return round($num * 1000) / 1000;
+}
+
+@function torem($num) {
+  @return calc($num / 14) * 1rem;
+}
+
+@function toem($num, $parent: 14) {
+  @return calc(#{$num} / #{$parent} * 1em);
+}
+
+@mixin fzrem($size) {
+  font-size: calc($size / 14) * 1rem;
+}
+
+@mixin fzem($size, $parent: 14) {
+  font-size: calc($size / $parent) * 1em;
+}
+
+@mixin button-reset {
+  display: inline-block;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+@mixin input-reset {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  outline: none;
+  box-shadow: none;
+  line-height: 1.4;
+  box-sizing: border-box;
+}
+
+@mixin dark {
+  @at-root html[data-theme="dark"] & {
+    @content;
+  }
+}
+
+$large: 1180px;
+$tablet: 1080px;
+$tabletmin: 1081px;
+$tablet2: 800px;
+$tablet2min: 801px;
+$spmin: 741px;
+$sp: 740px;
+$sp2: 560px;
+$sp2min: 561px;
+
+@mixin media($mediaSize) {
+
+  @if $mediaSize ==tabmin {
+    @media all and (min-width: $tabletmin) {
+      @content
+    }
+  }
+
+  @else if $mediaSize ==tablet {
+    @media all and (max-width: $tablet) {
+      @content
+    }
+  }
+
+  @else if $mediaSize ==tab2min {
+    @media all and (min-width: $tablet2min) {
+      @content
+    }
+  }
+
+  @else if $mediaSize ==tablet2 {
+    @media all and (max-width: $tablet2) {
+      @content
+    }
+  }
+
+  @else if $mediaSize ==pc {
+    @media all and (max-width: $large) {
+      @content
+    }
+  }
+
+  @else if $mediaSize ==spmin {
+    @media all and (min-width: $spmin) {
+      @content
+    }
+  }
+
+  @else if $mediaSize ==sp {
+    @media all and (max-width: $sp) {
+      @content
+    }
+  }
+
+  @else if $mediaSize ==sp2 {
+    @media all and (max-width: $sp2) {
+      @content
+    }
+  }
+
+  @else if $mediaSize ==sp2min {
+    @media all and (min-width: $sp2min) {
+      @content
+    }
+  }
+
+}

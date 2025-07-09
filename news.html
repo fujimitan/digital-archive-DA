@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ一覧</title>
+  <link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+  <link rel="stylesheet" href="./bundles/web/css/news.css" type="text/css">
+</head>
+
+<body>
+  <div id="page-wrapper" class="page-wrapper">
+    <!-- header -->
+    <header id="commonHeader" class="commonHeader"></header>
+    <!-- 構築テスト用include -->
+    <script type="module">
+      fetch('./includes/header.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const header = fragment.querySelector('header#commonHeader');
+          if (header) {
+            const target = document.getElementById('commonHeader');
+            if (target) target.replaceWith(header);
+          }
+        });
+    </script>
+    <!-- //構築テスト用include -->
+    <!-- //header -->
+
+    <main id="mainContent" class="mainContent hidden-box">
+      <!-- content -->
+
+      <div class="inner pb-100">
+
+        <section>
+          <div class="inner-box-l pt-30 mb-40 mb-50-sp">
+            <ol class="bread-crumb">
+              <li class="bread-crumb__item">
+                <a href="#">トップ</a>
+              </li>
+              <li class="bread-crumb__item">
+                <span class="current" aria-current="page">お知らせ</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="inner-box-m">
+
+            <div class="pb-20 mb-20 mb-0-sp bd-bb">
+              <h2 class="icon-heading">
+                <span class="icon-heading__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.279 13.533">
+                    <path
+                      d="M5130.514,16658.533h-.033l-.007,0-.031,0a.009.009,0,0,0-.007,0l-.024,0-.01,0a.117.117,0,0,1-.025-.008.049.049,0,0,1-.016,0l-.009,0a.489.489,0,0,1-.283-.244.122.122,0,0,1-.009-.02v0h0a.508.508,0,0,1-.041-.146l-.258-2.064H5125.5a.5.5,0,0,1-.5-.5V16645.5a.5.5,0,0,1,.5-.5h5.954a.5.5,0,0,1,.493.439l.259,2.064h4.574a.5.5,0,0,1,.5.5v10.025a.5.5,0,0,1-.5.5Zm2.688-3.068a.414.414,0,0,1,0,.066.48.48,0,0,1-.1.289s0,0,0,0v0c-.008.01-.017.021-.021.025l-1.472,1.682h4.666v-9.031h-3.947l.188,1.51h1.438a.5.5,0,1,1,0,1h-1.313l.188,1.51h1.125a.5.5,0,1,1,0,1h-1Zm-2.331,1.4.734-.838h-.837Zm-4.873-1.842h6.142l-.242-1.947v0l-.314-2.492v-.014l-.313-2.5v-.012l-.259-2.057H5126Zm1.38-1.5a.5.5,0,0,1,0-1h2.822a.5.5,0,0,1,0,1Zm0-2.51a.5.5,0,0,1,0-1h2.508a.5.5,0,1,1,0,1Zm0-2.508a.5.5,0,0,1,0-1h2.195a.5.5,0,1,1,0,1Z"
+                      transform="translate(-5125 -16645)" fill="currentColor" />
+                  </svg>
+                </span>
+                <span class="icon-heading__ttl">
+                  お知らせ
+                </span>
+              </h2>
+            </div>
+
+            <!-- お知らせ一覧 -->
+            <div class="news-list">
+              <!-- お知らせ1 -->
+              <article class="news-item">
+                <div class="news-item__date">2025.03.27</div>
+                <div class="news-item__title">新たに目録を公表する文書について</div>
+                <div class="news-item__body">
+                  令和6年度に受け入れた特定歴史公文書等の目録データを公表しました。<br>
+                  <br>
+                  (1)行政文書(令和6年度受入分)<br>
+                  (2)司法行政文書 (令和6年度受入分)<br>
+                  (3)寄贈文書 (令和6年度受入分)
+                </div>
+              </article>
+
+              <!-- お知らせ2 -->
+              <article class="news-item">
+                <div class="news-item__date">2025.03.19</div>
+                <div class="news-item__title">新規画像追加のお知らせ</div>
+                <div class="news-item__body">
+                  令和6年度に作成した特定歴史公文書等のデジタル画像、 約210万コマを追加しました。
+                </div>
+              </article>
+
+              <!-- お知らせ3 -->
+              <article class="news-item">
+                <div class="news-item__date">2024.12.18</div>
+                <div class="news-item__title">【デジタルアーカイブ等 システムメンテナンス】 サービス一時停止のお知らせ1月26日 (日) 10:00 - 18:00</div>
+                <div class="news-item__body">
+                  システムメンテナンスのため、下記の日時において国立公文書館デジタルアーカイブとアジア歴史資料センターのサービスが一時的に利用 できなくなります。<br><br>
+                  【サービス停止日時】<br>
+                  令和7年1月26日 (日) 10時から18時<br>
+                  (予備日:2月16日 (日) 10時から18時)<br><br>
+                  【対象】<br>
+                  ・国立公文書館デジタルアーカイブ(<a href="https://www.digital.archives.go.jp/" target="_blank">https://www.digital.archives.go.jp/</a>) のサービス全て<br>
+                  ・アジア歴史資料センター(<a href="https://www.jacar.archives.go.jp/" target="_blank">https://www.jacar.archives.go.jp/</a>) のホームページを除く検索などのサービス全て<br><br>
+                  サービス再開の時間は前後する場合がございます。<br>
+                  利用者の皆様にはご不便をおかけいたしますが、ご理解くださいますようお願いいたします。
+                </div>
+              </article>
+            </div>
+            <!-- //お知らせ一覧 -->
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <!-- //content -->
+    </main> <!-- //#mainContent -->
+
+    <!-- footer -->
+    <footer id="commonFooter" class="commonFooter"></footer>
+    <!-- 構築テスト用include -->
+    <script type="module">
+      fetch('./includes/footer.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const footer = fragment.querySelector('footer#commonFooter');
+          if (footer) {
+            const target = document.getElementById('commonFooter');
+            if (target) target.replaceWith(footer);
+          }
+        });
+    </script>
+    <!-- //構築テスト用include -->
+    <!-- //footer -->
+
+  </div> <!-- //#page-wrapper -->
+
+  <!-- script -->
+  <script src="./bundles/web/js/jQuery.js"></script>
+  <script src="./bundles/web/js/cookieConsent.js"></script>
+  <script src="./bundles/web/js/swiper-bundle.min.js"></script>
+  <script src="./bundles/web/js/common.js"></script>
+
+</body>
+
+</html>

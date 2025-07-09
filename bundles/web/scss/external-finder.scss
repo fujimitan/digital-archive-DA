@@ -1,0 +1,28 @@
+@use "base" as *;
+
+.external-finder-form-container {
+  &__row {
+    display: flex;
+    gap: torem(10);
+    padding: torem(10) 0;
+    align-items: center;
+  }
+
+  &__label-wrap {
+    flex-shrink: 0;
+    width: torem(130);
+    line-height: 1.4;
+
+    @include media(tablet) {
+      width: torem(100);
+    }
+  }
+
+  &__content-wrap {
+    flex: 1;
+
+    @include media(sp) {
+      width: 100%;
+    }
+  }
+}

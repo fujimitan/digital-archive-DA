@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>index</title>
+	<style>
+		body {
+			padding: 100px 30px;
+		}
+
+		table {
+			width: 100%;
+			max-width: 800px;
+			margin: 0 auto;
+			border-collapse: collapse;
+		}
+
+		th,
+		td {
+			padding: 0.3em;
+			border: 1px solid #999;
+			text-align: left;
+		}
+
+		thead th {
+			background-color: #666;
+			color: #fff;
+		}
+
+		.state th {
+			padding-left: 2em;
+			font-weight: normal;
+			font-size: 0.8em;
+		}
+
+		.state th::before {
+			content: '-';
+		}
+
+		.state th,
+		.state td {
+			background-color: #ffdfdf;
+		}
+
+		.data th {
+			padding-left: 2em;
+			font-weight: normal;
+			font-size: 0.8em;
+		}
+
+		.data th::before {
+			content: '-';
+		}
+
+		.data th,
+		.data td {
+			background-color: #dedede;
+		}
+	</style>
+</head>
+
+<body>
+	<table>
+		<thead>
+			<th>ページ名</th>
+			<th>ファイル名・url</th>
+			<th>固有js</th>
+		</thead>
+		<tbody>
+			<tr>
+				<th>DAトップ</th>
+				<td><a href="top.html" target="_blank">top.html</a></td>
+				<td>top.js</td>
+			</tr>
+			<tr class="state">
+				<th>サジェスト表示</th>
+				<td><a href="top_state-suggest.html" target="_blank">top_state-suggest.html</a></td>
+				<td>top.js</td>
+			</tr>
+			<tr>
+				<th>DA詳細検索</th>
+				<td><a href="archive-finder.html" target="_blank">archive-finder.html</a></td>
+				<td>archive-finder.js</td>
+			</tr>
+			<tr class="state">
+				<th>サジェスト表示</th>
+				<td><a href="archive-finder_state-suggest.html" target="_blank">archive-finder_state-suggest.html</a></td>
+				<td>archive-finder.js</td>
+			</tr>
+			<tr>
+				<th>DA検索結果一覧（所蔵資料検索）</th>
+				<td><a href="archive-result.html" target="_blank">archive-result.html</a></td>
+				<td>archive-result.js</td>
+			</tr>
+			<tr>
+				<th>目録詳細</th>
+				<td><a href="archive-detail.html" target="_blank">archive-detail.html</a></td>
+				<td>archive-detail.js</td>
+			</tr>
+			<tr class="state">
+				<th>スライダー</th>
+				<td><a href="archive-detail_state-slide.html" target="_blank">archive-detail_state-slide.html</a></td>
+				<td>archive-detail.js</td>
+			</tr>
+			<tr class="state">
+				<th>下位項目なし</th>
+				<td><a href="archive-detail_state-noresult.html" target="_blank">archive-detail_state-noresult.html</a></td>
+				<td>archive-detail.js</td>
+			</tr>
+			<tr class="state">
+				<th>件名</th>
+				<td><a href="archive-detail_state-item.html" target="_blank">archive-detail_state-item.html</a></td>
+				<td>archive-detail.js</td>
+			</tr>
+			<tr>
+				<th>DA詳細検索（他機関横断）</th>
+				<td><a href="external-finder.html" target="_blank">external-finder.html</a></td>
+				<td>external-finder.js</td>
+			</tr>
+			<tr>
+				<th>DA検索結果一覧（横断検索）</th>
+				<td><a href="external-result.html" target="_blank">external-result.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>DA横断検索詳細表示</th>
+				<td><a href="external-detail.html" target="_blank">external-detail.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>ピックアップコンテンツ</th>
+				<td><a href="pickup.html" target="_blank">pickup.html</a></td>
+				<td>pickup.js</td>
+			</tr>
+			<tr class="data">
+				<th>タブ(大分類)指定</th>
+				<td><a href="pickup.html?tab=tab2" target="_blank">pickup.html</a>[?tab=tab2]</td>
+				<td>pickup.js</td>
+			</tr>
+			<tr>
+				<th>お知らせ一覧</th>
+				<td><a href="news.html" target="_blank">news.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>初めての方へ</th>
+				<td><a href="howto-first-time.html" target="_blank">howto-first-time.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>ご利用方法</th>
+				<td><a href="howto-usage.html" target="_blank">howto-usage.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>よくあるご質問</th>
+				<td><a href="howto-faq.html" target="_blank">howto-faq.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>データの二次利用</th>
+				<td><a href="howto-secondary-use.html" target="_blank">howto-secondary-use.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>横断検索の連携</th>
+				<td><a href="howto-integration.html" target="_blank">howto-integration.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>関連資料</th>
+				<td><a href="howto-materials.html" target="_blank">howto-materials.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>プライバシーポリシー</th>
+				<td><a href="privacy.html" target="_blank">privacy.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>ビューアー(画像)</th>
+				<td><a href="viewer_img.html" target="_blank">viewer_img.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>ビューアー(PDF)</th>
+				<td><a href="viewer_pdf.html" target="_blank">viewer_pdf.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>ビューアー(動画音声)</th>
+				<td><a href="viewer_video.html" target="_blank">viewer_video.html</a></td>
+				<td></td>
+			</tr>
+			<tr>
+				<th>コンテンツダウンロード</th>
+				<td><a href="contents_download.html" target="_blank">contents_download.html</a></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

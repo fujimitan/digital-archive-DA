@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>目録詳細</title>
+  <link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+  <link rel="stylesheet" href="./bundles/web/css/archive-detail.css" type="text/css">
+</head>
+
+<body>
+  <div id="page-wrapper" class="page-wrapper">
+    <!-- header -->
+    <header id="commonHeader" class="commonHeader"></header>
+    <!-- 構築テスト用include -->
+    <script type="module">
+      fetch('./includes/header.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const header = fragment.querySelector('header#commonHeader');
+          if (header) {
+            const target = document.getElementById('commonHeader');
+            if (target) target.replaceWith(header);
+          }
+        });
+    </script>
+    <!-- //構築テスト用include -->
+    <!-- //header -->
+
+    <main id="mainContent" class="mainContent mainContent--has-sidebar">
+      <!-- content -->
+
+      <div class="has-sidebar-layout">
+
+        <section class="has-sidebar-layout__main">
+          <div class="has-sidebar-layout__main-container pt-30">
+
+            <div class="bread-crumb-topbar">
+              <ol class="bread-crumb">
+                <li class="bread-crumb__item">
+                  <a href="#">トップ</a>
+                </li>
+                <li class="bread-crumb__item">
+                  <a href="#">詳細検索</a>
+                </li>
+                <li class="bread-crumb__item">
+                  <a href="#">検索結果一覧</a>
+                </li>
+                <li class="bread-crumb__item">
+                  <span class="current" aria-current="page">幣原内閣閣議書類（その３）昭和２１年１月４日～２月１５日</span>
+                </li>
+              </ol>
+              <a href="#" class="bread-crumb-topbar__guide-link">
+                <span>国立公文書館HP利用案内</span>
+                <span class="bread-crumb-topbar__guide-link__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.483 13.736">
+                    <g transform="translate(-6 -8)">
+                      <path
+                        d="M22.989,8H13.374A1.374,1.374,0,0,0,12,9.374v1.374h1.374V9.374h9.615v6.868H21.615v1.374h1.374a1.374,1.374,0,0,0,1.374-1.374V9.374A1.374,1.374,0,0,0,22.989,8Z"
+                        transform="translate(-1.879)" fill="currentColor" />
+                      <path
+                        d="M16.989,14H7.374A1.374,1.374,0,0,0,6,15.374v6.868a1.374,1.374,0,0,0,1.374,1.374h9.615a1.374,1.374,0,0,0,1.374-1.374V15.374A1.374,1.374,0,0,0,16.989,14ZM7.374,22.242V15.374h9.615v6.868Z"
+                        transform="translate(0 -1.879)" fill="currentColor" />
+                    </g>
+                  </svg>
+                </span>
+              </a>
+            </div>
+
+            <div class="detail-header mb-20">
+              <div class="detail-header__main">
+                <div class="detail-header__main-heading">
+                  <span class="cmn-category-label file">
+                    <span class="cmn-category-label__icon">
+                      <img src="./bundles/web/images/common/cat_icons/icon_file.svg" alt="" width="12" height="11"
+                        loading="lazy">
+                    </span>
+                    <span class="cmn-category-label__text">
+                      簿冊
+                    </span>
+                  </span>
+                  <h2 class="detail-header__heading">
+                    <span class="detail-header__heading-ttl">
+                      幣原内閣閣議書類（その３）昭和２１年１月４日～２月１５日
+                    </span>
+                  </h2>
+                </div>
+                <div class="detail-header__main-tree">
+                  <h3 class="detail-header__main-tree-heading">
+                    階層
+                  </h3>
+                  <div class="detail-header__main-tree-body">
+                    <ol class="detail-header__main-tree-list">
+                      <li class="detail-header__main-tree-item">
+                        <span class="detail-header__main-tree-item-icon">
+                          <img src="./bundles/web/images/common/icon_fonds.svg" alt="" width="12" height="11"
+                            loading="lazy">
+                        </span>
+                        <span class="detail-header__main-tree-item-label">
+                          <a href="#">
+                            行政文書
+                          </a>
+                        </span>
+                      </li>
+                      <li class="detail-header__main-tree-item">
+                        <span class="detail-header__main-tree-item-icon">
+                          <img src="./bundles/web/images/common/icon_fonds.svg" alt="" width="12" height="11"
+                            loading="lazy">
+                        </span>
+                        <span class="detail-header__main-tree-item-label">
+                          <a href="#">
+                            内閣文庫
+                          </a>
+                        </span>
+                      </li>
+                      <li class="detail-header__main-tree-item">
+                        <span class="detail-header__main-tree-item-icon">
+                          <img src="./bundles/web/images/common/icon_fonds.svg" alt="" width="12" height="11"
+                            loading="lazy">
+                        </span>
+                        <span class="detail-header__main-tree-item-label">
+                          <a href="#">
+                            内閣総務官室関係
+                          </a>
+                        </span>
+                      </li>
+                      <li class="detail-header__main-tree-item">
+                        <span class="detail-header__main-tree-item-icon">
+                          <img src="./bundles/web/images/common/icon_file.svg" alt="" width="10" height="12"
+                            loading="lazy">
+                        </span>
+                        <span class="detail-header__main-tree-item-label">
+                          <a href="#">
+                            幣原内閣閣議書類（その３）
+                          </a>
+                        </span>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+              <div class="detail-header__btns">
+                <a href="#" class="prev-link prev-link--center">
+                  <span class="prev-link__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 7" aria-hidden="true" focusable="false">
+                      <path
+                        d="M3.659 1.308a1 1 0 0 1 1.682 0l2.669 4.151A1 1 0 0 1 7.168 7H1.832a1 1 0 0 1-.842-1.541l2.669-4.151z"
+                        fill="#fff" transform="translate(9 7) rotate(180)" />
+                    </svg>
+                  </span>
+                  <span>前の画面に戻る</span>
+                </a>
+                <button type="button" class="cmn-button cmn-button--key2 cmn-button--has-icon-center">
+                  <span class="cmn-button__icon-left color-white w-14">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.609 13.427" class="reset-svg">
+                      <g transform="translate(-3.625 -3.749)">
+                        <path
+                          d="M15.3,17.176H8.071a.5.5,0,0,1,0-1H15.3a3.08,3.08,0,0,0,3.086-3.066V4.749H11.66a1.29,1.29,0,0,0-.915.377,1.27,1.27,0,0,0-.378.906l0,1.729a.5.5,0,1,1-1,0l0-1.728A2.288,2.288,0,0,1,11.66,3.749h7.228a.5.5,0,0,1,.5.5V13.11A4.081,4.081,0,0,1,15.3,17.176Z"
+                          transform="translate(-2.153)" fill="#fff" />
+                        <path
+                          d="M9.9,9.486h1.99a.5.5,0,0,1,.5.5v1.978a.5.5,0,0,1-.5.5H9.9a.5.5,0,0,1-.5-.5V9.986A.5.5,0,0,1,9.9,9.486Zm1.49,1H10.4v.978h.99Zm-5.469-.081H7.711a.5.5,0,0,1,.5.5v7.132a2.293,2.293,0,0,1-4.586,0v-5.35A2.292,2.292,0,0,1,5.918,10.405Zm1.293,1H5.918a1.291,1.291,0,0,0-1.293,1.283v.89H7.211Zm0,3.173H4.625v3.459a1.293,1.293,0,0,0,2.586,0Zm2.686-1H14.45a.5.5,0,1,1,0,1H9.9a.5.5,0,1,1,0-1Zm0,2.3H14.45a.5.5,0,0,1,0,1 H9.9a.5.5,0,0,1,0-1Z"
+                          transform="translate(0 -3.145)" fill="#fff" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span>利用請求書印刷</span>
+                </button>
+              </div>
+            </div>
+
+            <nav class="archive-detail-tabs">
+              <button type="button" class="archive-detail-tabs__item is-current" data-style="basic">
+                <span class="archive-detail-tabs__item-label">
+                  基本情報
+                </span>
+              </button>
+              <button type="button" class="archive-detail-tabs__item" data-style="detail">
+                <span class="archive-detail-tabs__item-label">
+                  全ての情報
+                </span>
+              </button>
+            </nav>
+
+            <section class="archive-detail-section">
+              <div class="archive-detail-section__img-wrap">
+                <div class="archive-detail-section__img-wrap-main">
+                  <figure class="img-wrap-img">
+                    <img src="./dummy_images/document_thumb1.webp" alt="" width="289" height="393" loading="lazy">
+                  </figure>
+                </div>
+                <a href="#" class="cmn-link">
+                  <span>閲覧</span>
+                </a>
+                <nav class="archive-detail-section__sns">
+                  <ul class="archive-detail-section__sns-list">
+                    <li class="archive-detail-section__sns-item">
+                      <a href="#" class="archive-detail-section__sns-link">
+                        <img src="./bundles/web/images/common/share_icons/x.svg" alt="X" width="28" height="28"
+                          loading="lazy" class="dark-invert-white">
+                      </a>
+                    </li>
+                    <li class="archive-detail-section__sns-item">
+                      <a href="#" class="archive-detail-section__sns-link">
+                        <img src="./bundles/web/images/common/share_icons/facebook.svg" alt="Facebook" width="28"
+                          height="28" loading="lazy">
+                      </a>
+                    </li>
+                    <li class="archive-detail-section__sns-item">
+                      <a href="#" class="archive-detail-section__sns-link">
+                        <img src="./bundles/web/images/common/share_icons/line.svg" alt="LINE" width="28" height="28"
+                          loading="lazy">
+                      </a>
+                    </li>
+                    <li class="archive-detail-section__sns-item">
+                      <a href="#" class="archive-detail-section__sns-link">
+                        <img src="./bundles/web/images/common/share_icons/mail.svg" alt="Mail" width="28" height="28"
+                          loading="lazy" class="dark-invert-white">
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="archive-detail-section__content">
+                <dl class="archive-detail-section__info-list">
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">簿冊標題</dt>
+                    <dd class="archive-detail-section__info-item-value">幣原内閣閣議書類（その３）昭和２１年１月４日～２月１５日</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">請求番号</dt>
+                    <dd class="archive-detail-section__info-item-value">平１４内閣00001100</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">保存場所</dt>
+                    <dd class="archive-detail-section__info-item-value">本館</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">作成・取得部局</dt>
+                    <dd class="archive-detail-section__info-item-value">内閣官房内閣参事官室</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">年月日</dt>
+                    <dd class="archive-detail-section__info-item-value">昭和21年01月04日 - 昭和21年02月15日</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">利用制限の区分</dt>
+                    <dd class="archive-detail-section__info-item-value">公開</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">移管元機関等</dt>
+                    <dd class="archive-detail-section__info-item-value">内閣官房</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">移管等年度</dt>
+                    <dd class="archive-detail-section__info-item-value">平成14</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">受入方法</dt>
+                    <dd class="archive-detail-section__info-item-value">移管</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">媒体の種別</dt>
+                    <dd class="archive-detail-section__info-item-value">紙</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">言語</dt>
+                    <dd class="archive-detail-section__info-item-value">日本</dd>
+                  </div>
+                  <div class="archive-detail-section__info-item">
+                    <dt class="archive-detail-section__info-item-label">二次利用の可否</dt>
+                    <dd class="archive-detail-section__info-item-value">
+                      <ul class="creative-commons-list">
+                        <li class="creative-commons-list__item">
+                          <a href="#" class="creative-commons-list__item-icon">
+                            <img src="./bundles/web/images/common/creative_commons/zero.webp" alt="" width="53"
+                              height="17" loading="lazy">
+                          </a>
+                          <span class="creative-commons-list__text">
+                            メタデータの利用条件
+                          </span>
+                        </li>
+                        <li class="creative-commons-list__item">
+                          <a href="#" class="creative-commons-list__item-icon">
+                            <img src="./bundles/web/images/common/creative_commons/pb.webp" alt="" width="53"
+                              height="17" loading="lazy">
+                          </a>
+                          <span class="creative-commons-list__text">
+                            サムネイル画像の利用条件
+                          </span>
+                        </li>
+                        <li class="creative-commons-list__item">
+                          <a href="#" class="creative-commons-list__item-icon">
+                            <img src="./bundles/web/images/common/creative_commons/pb.webp" alt="" width="53"
+                              height="17" loading="lazy">
+                          </a>
+                          <span class="creative-commons-list__text">
+                            コンテンツの公開
+                          </span>
+                        </li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+
+                <div class="detail-show mt-20">
+                  <h3 class="bg-heading">
+                    <span>移管資料情報</span>
+                  </h3>
+                  <dl class="archive-detail-section__info-list">
+                    <div class="archive-detail-section__info-item">
+                      <dt class="archive-detail-section__info-item-label">ダミーダミー</dt>
+                      <dd class="archive-detail-section__info-item-value">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</dd>
+                    </div>
+                    <div class="archive-detail-section__info-item">
+                      <dt class="archive-detail-section__info-item-label">ダミーダミー</dt>
+                      <dd class="archive-detail-section__info-item-value">ダミーダミーダミーダミーダミーダミーダミー</dd>
+                    </div>
+                    <div class="archive-detail-section__info-item">
+                      <dt class="archive-detail-section__info-item-label">ダミーダミー</dt>
+                      <dd class="archive-detail-section__info-item-value">ダミーダミーダミーダミーダミーダミーダミー</dd>
+                    </div>
+                    <div class="archive-detail-section__info-item">
+                      <dt class="archive-detail-section__info-item-label">ダミーダミー</dt>
+                      <dd class="archive-detail-section__info-item-value">ダミーダミーダミーダミーダミーダミーダミー</dd>
+                    </div>
+                    <div class="archive-detail-section__info-item">
+                      <dt class="archive-detail-section__info-item-label">ダミーダミー</dt>
+                      <dd class="archive-detail-section__info-item-value">ダミーダミーダミーダミーダミーダミーダミー</dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="archive-detail-section__data-copy">
+                <div class="archive-detail-section__data-copy-item">
+                  <button class="archive-detail-section__data-copy-btn">
+                    <span>URIをコピー</span>
+                    <span class="archive-detail-section__data-copy-btn-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.903 8.011">
+                        <path
+                          d="M6.751,8.75a.738.738,0,0,1,.8-.731c.48,0,1.464-.011,1.464-.011S9,7.665,9,7.229a.787.787,0,0,1,.858-.734c.468,0,2.787.02,3.014.02a1.056,1.056,0,0,1,.667.278,6.966,6.966,0,0,1,.831.734c.191.216.271.342.271.52s0,3.772,0,4.188a.8.8,0,0,1-.841.73c-.454.006-1.43.006-1.43.006s.023.308.023.743a.84.84,0,0,1-.85.788c-.452.012-3.531-.024-3.969-.012a.8.8,0,0,1-.833-.757C6.738,13.311,6.751,9.161,6.751,8.75Zm.821.194L7.516,13.5a.194.194,0,0,0,.194.2l3.627.011a.19.19,0,0,0,.192-.2l-.011-.436a.1.1,0,0,0-.1-.1s-1.073.031-1.559.014a.777.777,0,0,1-.818-.761c0-.427,0-3.393,0-3.393a.1.1,0,0,0-.1-.1l-1.171,0a.2.2,0,0,0-.2.2ZM12.8,7.213c-.082-.071-.148-.041-.148.067v.847a.1.1,0,0,0,.1.1l1.024,0c.108,0,.13-.057.048-.128Zm-2.827.042a.1.1,0,0,0-.1.1l-.031,4.725a.146.146,0,0,0,.146.147l3.69-.009a.1.1,0,0,0,.1-.1l.062-3.063a.1.1,0,0,0-.1-.1l-1.511,0c-.226,0-.37-.109-.37-.318s0-1.274,0-1.274a.1.1,0,0,0-.1-.1L9.972,7.255Z"
+                          transform="translate(-6.738 -6.494)" fill="currentColor" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="archive-detail-section__data-copy-input">
+                    <p>https://www.digital.archives.go.jp/view/[データベースID]/[目録データID]?[コンテンツID]</p>
+                  </div>
+                </div>
+                <div class="archive-detail-section__data-copy-item">
+                  <button class="archive-detail-section__data-copy-btn">
+                    <span>引用例をコピー</span>
+                    <span class="archive-detail-section__data-copy-btn-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.903 8.011">
+                        <path
+                          d="M6.751,8.75a.738.738,0,0,1,.8-.731c.48,0,1.464-.011,1.464-.011S9,7.665,9,7.229a.787.787,0,0,1,.858-.734c.468,0,2.787.02,3.014.02a1.056,1.056,0,0,1,.667.278,6.966,6.966,0,0,1,.831.734c.191.216.271.342.271.52s0,3.772,0,4.188a.8.8,0,0,1-.841.73c-.454.006-1.43.006-1.43.006s.023.308.023.743a.84.84,0,0,1-.85.788c-.452.012-3.531-.024-3.969-.012a.8.8,0,0,1-.833-.757C6.738,13.311,6.751,9.161,6.751,8.75Zm.821.194L7.516,13.5a.194.194,0,0,0,.194.2l3.627.011a.19.19,0,0,0,.192-.2l-.011-.436a.1.1,0,0,0-.1-.1s-1.073.031-1.559.014a.777.777,0,0,1-.818-.761c0-.427,0-3.393,0-3.393a.1.1,0,0,0-.1-.1l-1.171,0a.2.2,0,0,0-.2.2ZM12.8,7.213c-.082-.071-.148-.041-.148.067v.847a.1.1,0,0,0,.1.1l1.024,0c.108,0,.13-.057.048-.128Zm-2.827.042a.1.1,0,0,0-.1.1l-.031,4.725a.146.146,0,0,0,.146.147l3.69-.009a.1.1,0,0,0,.1-.1l.062-3.063a.1.1,0,0,0-.1-.1l-1.511,0c-.226,0-.37-.109-.37-.318s0-1.274,0-1.274a.1.1,0,0,0-.1-.1L9.972,7.255Z"
+                          transform="translate(-6.738 -6.494)" fill="currentColor" />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="archive-detail-section__data-copy-input">
+                    <p>幣原内閣閣議書類（その３）昭和２１年１月４日～２月１５日、国立公文書館</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <form class="archive-result-form">
+
+              <h3 class="mb-30 fw-600 fz16">
+                <span>
+                  件名・細目一覧
+                </span>
+              </h3>
+
+              <div class="archive-result-nav-btns">
+                <label class="cmn-check-item">
+                  <span class="cmn-check-item__icon cmn-check-icon">
+                    <input type="checkbox" id="select-all-page">
+                    <span class="cmn-check-icon__icon">
+                      <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7" loading="lazy">
+                    </span>
+                  </span>
+                  <span class="cmn-check-item__text">当ページ全てを選択/解除</span>
+                </label>
+                <label class="cmn-check-item">
+                  <span class="cmn-check-item__icon cmn-check-icon">
+                    <input type="checkbox" id="select-all-result">
+                    <span class="cmn-check-icon__icon">
+                      <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7" loading="lazy">
+                    </span>
+                  </span>
+                  <span class="cmn-check-item__text">検索結果全てを選択/解除</span>
+                </label>
+                <button type="button" class="cmn-button cmn-button--has-icon">
+                  <span class="cmn-button__icon-left w-15 color-key">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.75 12.374" class="reset-svg">
+                      <g transform="translate(-2.25 -5.625)">
+                        <path
+                          d="M17.859,20.431h-1.3V16.172a.141.141,0,0,0-.141-.141H15.361a.141.141,0,0,0-.141.141v4.259h-1.3a.14.14,0,0,0-.111.227l1.969,2.491a.141.141,0,0,0,.221,0l1.969-2.491A.14.14,0,0,0,17.859,20.431Z"
+                          transform="translate(-5.765 -5.203)" fill="currentColor" />
+                        <path
+                          d="M15.388,9.258a5.624,5.624,0,0,0-10.519,0,3.516,3.516,0,0,0,.895,6.915h.7a.141.141,0,0,0,.141-.141V14.977a.141.141,0,0,0-.141-.141h-.7a2.181,2.181,0,0,1-1.717-3.523,2.2,2.2,0,0,1,1.162-.768l.666-.174.244-.643a4.227,4.227,0,0,1,.628-1.114,4.317,4.317,0,0,1,.921-.877,4.286,4.286,0,0,1,4.922,0,4.319,4.319,0,0,1,.921.877,4.255,4.255,0,0,1,.628,1.114l.243.642.664.176a2.19,2.19,0,0,1,1.619,2.111,2.179,2.179,0,0,1-2.178,2.18h-.7a.141.141,0,0,0-.141.141v1.055a.141.141,0,0,0,.141.141h.7a3.516,3.516,0,0,0,.9-6.913Z"
+                          fill="currentColor" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span>選択した資料をCSV出力</span>
+                </button>
+                <button type="submit" class="cmn-button cmn-button--key2 cmn-button--has-icon">
+                  <span class="cmn-button__icon-left color-white w-14">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.609 13.427" class="reset-svg">
+                      <g transform="translate(-3.625 -3.749)">
+                        <path
+                          d="M15.3,17.176H8.071a.5.5,0,0,1,0-1H15.3a3.08,3.08,0,0,0,3.086-3.066V4.749H11.66a1.29,1.29,0,0,0-.915.377,1.27,1.27,0,0,0-.378.906l0,1.729a.5.5,0,1,1-1,0l0-1.728A2.288,2.288,0,0,1,11.66,3.749h7.228a.5.5,0,0,1,.5.5V13.11A4.081,4.081,0,0,1,15.3,17.176Z"
+                          transform="translate(-2.153)" fill="#fff" />
+                        <path
+                          d="M9.9,9.486h1.99a.5.5,0,0,1,.5.5v1.978a.5.5,0,0,1-.5.5H9.9a.5.5,0,0,1-.5-.5V9.986A.5.5,0,0,1,9.9,9.486Zm1.49,1H10.4v.978h.99Zm-5.469-.081H7.711a.5.5,0,0,1,.5.5v7.132a2.293,2.293,0,0,1-4.586,0v-5.35A2.292,2.292,0,0,1,5.918,10.405Zm1.293,1H5.918a1.291,1.291,0,0,0-1.293,1.283v.89H7.211Zm0,3.173H4.625v3.459a1.293,1.293,0,0,0,2.586,0Zm2.686-1H14.45a.5.5,0,1,1,0,1H9.9a.5.5,0,1,1,0-1Zm0,2.3H14.45a.5.5,0,0,1,0,1 H9.9a.5.5,0,0,1,0-1Z"
+                          transform="translate(0 -3.145)" fill="#fff" />
+                      </g>
+                    </svg>
+                  </span>
+                  <span>選択した資料を利用請求</span>
+                </button>
+              </div>
+
+              <div class="archive-result-header">
+                <div class="archive-result-header__count">
+                  <span class="archive-result-header__count-total">検索結果数 <span class="count-number">123456</span><span
+                      class="fz12">件</span></span>
+                  <span class="archive-result-header__count-range">
+                    XXX ~ XXX件を表示
+                  </span>
+                </div>
+                <div class="archive-result-header__sort">
+                  <div class="archive-result-header__sort-item">
+                    <div class="archive-result-header__sort-label">表示数</div>
+                    <div class="cmn-select-wrap">
+                      <select class="cmn-select-wrap__select cmn-select-wrap__select--left">
+                        <option value="20">20件</option>
+                        <option value="50">50件</option>
+                        <option value="100" selected>100件</option>
+                        <option value="200">200件</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="archive-result-header__sort-item">
+                    <div class="archive-result-header__sort-label">表示順</div>
+                    <div class="cmn-select-wrap">
+                      <select class="cmn-select-wrap__select cmn-select-wrap__select--left">
+                        <option value="transfer-asc" selected>移管省庁等/請求番号（昇順）</option>
+                        <option value="transfer-desc">移管省庁等/請求番号（降順）</option>
+                        <option value="title-asc">標題/件名/書名（昇順）</option>
+                        <option value="title-desc">標題/件名/書名（降順）</option>
+                        <option value="creator-asc">作成部局/人名（昇順）</option>
+                        <option value="creator-desc">作成部局/人名（降順）</option>
+                        <option value="date-asc">作成年月日（昇順）</option>
+                        <option value="date-desc">作成年月日（降順）</option>
+                        <option value="request-asc">請求番号（昇順）</option>
+                        <option value="request-desc">請求番号（降順）</option>
+                        <option value="location-asc">保存場所（昇順）</option>
+                        <option value="location-desc">保存場所（降順）</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="archive-result-header__sort-item">
+                    <div class="archive-result-header__sort-label">表示スタイル</div>
+                    <div class="cmn-select-wrap">
+                      <select class="cmn-select-wrap__select cmn-select-wrap__select--left" id="result-display-style">
+                        <option data-style="simple">簡易</option>
+                        <option data-style="detail" selected>詳細</option>
+                        <option data-style="thumbnail">サムネイル</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="archive-result-table is-detail">
+                <div class="archive-result-table__header">
+                  <div class="archive-result-table__header-item cell-request">
+                    <span class="archive-result-table__header-item-label">
+                      利用請求<br>CSV出力
+                    </span>
+                  </div>
+                  <div class="archive-result-table__header-item cell-number">
+                    <span class="archive-result-table__header-item-label">
+                      NO.
+                    </span>
+                  </div>
+                  <div class="archive-result-table__header-item cell-summary">
+                    <span class="archive-result-table__header-item-label">
+                      概要情報
+                    </span>
+                  </div>
+                  <div class="archive-result-table__header-item cell-image">
+                    <span class="archive-result-table__header-item-label">
+                      画像等
+                    </span>
+                  </div>
+                </div>
+                <div class="archive-result-table__body">
+                  <!--  -->
+                  <div class="archive-result-table__body-item">
+                    <div class="archive-result-table__body-item-cell cell-request">
+                      <label class="cmn-check-icon">
+                        <input type="checkbox" class="csv-export">
+                        <span class="cmn-check-icon__icon">
+                          <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                            loading="lazy">
+                        </span>
+                      </label>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-number">
+                      <span class="archive-result-table__body-item-cell-label">
+                        1001
+                      </span>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-summary">
+                      <div class="result-header">
+                        <span class="cmn-category-label item">
+                          <span class="cmn-category-label__icon">
+                            <img src="./bundles/web/images/common/cat_icons/icon_item.svg" alt="" width="12" height="12"
+                              loading="lazy">
+                          </span>
+                          <span class="cmn-category-label__text">
+                            件名
+                          </span>
+                        </span>
+                        <h3 class="result-header__title">
+                          <a href="#">
+                            憲法改正案（乙案）​
+                          </a>
+                        </h3>
+                      </div>
+                      <ol class="result-tree">
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_fonds.svg" alt="" loading="lazy">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">行政文書</a>
+                          </span>
+                        </li>
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_fonds.svg" alt="" loading="lazy">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">内閣官房</a>
+                          </span>
+                        </li>
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_file.svg" alt="" loading="lazy" width="10"
+                              height="12">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">幣原内閣閣議書類</a>
+                          </span>
+                        </li>
+                      </ol>
+                      <dl class="result-summary">
+                        <span class="result-summary__item">
+                          <dt class="result-summary__label">[請求番号]</dt>
+                          <dd class="result-summary__value">令１内閣50001100</dd>
+                        </span>
+                        <span class="result-summary__item simple-hide">
+                          <dt class="result-summary__label">[作成・取得部局]</dt>
+                          <dd class="result-summary__value">内閣官房内閣参事官室</dd>
+                        </span>
+                        <span class="result-summary__item">
+                          <dt class="result-summary__label">[年月日]</dt>
+                          <dd class="result-summary__value">令和01年01月01日</dd>
+                        </span>
+                      </dl>
+                      <div class="result-subject simple-hide">
+                        <span>＜件名一覧はありません＞</span>
+                      </div>
+                      <dl class="result-info">
+                        <div class="result-info__item">
+                          <dt class="result-info__label">[利用制限の区分等]</dt>
+                          <dd class="result-info__value">公開　原本閲覧（否）</dd>
+                        </div>
+                        <div class="result-info__item">
+                          <dt class="result-info__label">[保存場所]</dt>
+                          <dd class="result-info__value">分館-KS-000-00</dd>
+                        </div>
+                      </dl>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-image">
+                      <a href="#" class="result-image-link">
+                        <span>閲覧</span>
+                      </a>
+                      <a href="#" class="result-thumbnail">
+                        <img src="./dummy_images/document_thumb4.webp" alt="" loading="lazy" width="289" height="393">
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="archive-result-table__body-item">
+                    <div class="archive-result-table__body-item-cell cell-request">
+                      <label class="cmn-check-icon">
+                        <input type="checkbox" class="csv-export">
+                        <span class="cmn-check-icon__icon">
+                          <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                            loading="lazy">
+                        </span>
+                      </label>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-number">
+                      <span class="archive-result-table__body-item-cell-label">
+                        1001
+                      </span>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-summary">
+                      <div class="result-header">
+                        <span class="cmn-category-label item">
+                          <span class="cmn-category-label__icon">
+                            <img src="./bundles/web/images/common/cat_icons/icon_item.svg" alt="" width="12" height="12"
+                              loading="lazy">
+                          </span>
+                          <span class="cmn-category-label__text">
+                            件名
+                          </span>
+                        </span>
+                        <h3 class="result-header__title">
+                          <a href="#">
+                            憲法改正案（乙案）​
+                          </a>
+                        </h3>
+                      </div>
+                      <ol class="result-tree">
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_fonds.svg" alt="" loading="lazy">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">行政文書</a>
+                          </span>
+                        </li>
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_fonds.svg" alt="" loading="lazy">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">内閣官房</a>
+                          </span>
+                        </li>
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_file.svg" alt="" loading="lazy" width="10"
+                              height="12">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">幣原内閣閣議書類</a>
+                          </span>
+                        </li>
+                      </ol>
+                      <dl class="result-summary">
+                        <span class="result-summary__item">
+                          <dt class="result-summary__label">[請求番号]</dt>
+                          <dd class="result-summary__value">令１内閣50001100</dd>
+                        </span>
+                        <span class="result-summary__item simple-hide">
+                          <dt class="result-summary__label">[作成・取得部局]</dt>
+                          <dd class="result-summary__value">内閣官房内閣参事官室</dd>
+                        </span>
+                        <span class="result-summary__item">
+                          <dt class="result-summary__label">[年月日]</dt>
+                          <dd class="result-summary__value">令和01年01月01日</dd>
+                        </span>
+                      </dl>
+                      <div class="result-subject simple-hide">
+                        <span>＜件名一覧はありません＞</span>
+                      </div>
+                      <dl class="result-info">
+                        <div class="result-info__item">
+                          <dt class="result-info__label">[利用制限の区分等]</dt>
+                          <dd class="result-info__value">公開　原本閲覧（否）</dd>
+                        </div>
+                        <div class="result-info__item">
+                          <dt class="result-info__label">[保存場所]</dt>
+                          <dd class="result-info__value">分館-KS-000-00</dd>
+                        </div>
+                      </dl>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-image">
+                      <a href="#" class="result-image-link">
+                        <span>閲覧</span>
+                      </a>
+                      <a href="#" class="result-thumbnail">
+                        <img src="./dummy_images/document_thumb4.webp" alt="" loading="lazy" width="289" height="393">
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <div class="archive-result-table__body-item">
+                    <div class="archive-result-table__body-item-cell cell-request">
+                      <label class="cmn-check-icon">
+                        <input type="checkbox" class="csv-export">
+                        <span class="cmn-check-icon__icon">
+                          <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                            loading="lazy">
+                        </span>
+                      </label>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-number">
+                      <span class="archive-result-table__body-item-cell-label">
+                        1001
+                      </span>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-summary">
+                      <div class="result-header">
+                        <span class="cmn-category-label item">
+                          <span class="cmn-category-label__icon">
+                            <img src="./bundles/web/images/common/cat_icons/icon_item.svg" alt="" width="12" height="12"
+                              loading="lazy">
+                          </span>
+                          <span class="cmn-category-label__text">
+                            件名
+                          </span>
+                        </span>
+                        <h3 class="result-header__title">
+                          <a href="#">
+                            憲法改正案（乙案）​
+                          </a>
+                        </h3>
+                      </div>
+                      <ol class="result-tree">
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_fonds.svg" alt="" loading="lazy">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">行政文書</a>
+                          </span>
+                        </li>
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_fonds.svg" alt="" loading="lazy">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">内閣官房</a>
+                          </span>
+                        </li>
+                        <li class="result-tree__item">
+                          <span class="result-tree__item-icon w-12">
+                            <img src="./bundles/web/images/common/icon_file.svg" alt="" loading="lazy" width="10"
+                              height="12">
+                          </span>
+                          <span class="result-tree__item-label">
+                            <a href="#">幣原内閣閣議書類</a>
+                          </span>
+                        </li>
+                      </ol>
+                      <dl class="result-summary">
+                        <span class="result-summary__item">
+                          <dt class="result-summary__label">[請求番号]</dt>
+                          <dd class="result-summary__value">令１内閣50001100</dd>
+                        </span>
+                        <span class="result-summary__item simple-hide">
+                          <dt class="result-summary__label">[作成・取得部局]</dt>
+                          <dd class="result-summary__value">内閣官房内閣参事官室</dd>
+                        </span>
+                        <span class="result-summary__item">
+                          <dt class="result-summary__label">[年月日]</dt>
+                          <dd class="result-summary__value">令和01年01月01日</dd>
+                        </span>
+                      </dl>
+                      <div class="result-subject simple-hide">
+                        <span>＜件名一覧はありません＞</span>
+                      </div>
+                      <dl class="result-info">
+                        <div class="result-info__item">
+                          <dt class="result-info__label">[利用制限の区分等]</dt>
+                          <dd class="result-info__value">公開　原本閲覧（否）</dd>
+                        </div>
+                        <div class="result-info__item">
+                          <dt class="result-info__label">[保存場所]</dt>
+                          <dd class="result-info__value">分館-KS-000-00</dd>
+                        </div>
+                      </dl>
+                    </div>
+                    <div class="archive-result-table__body-item-cell cell-image">
+                      <a href="#" class="result-image-link">
+                        <span>閲覧</span>
+                      </a>
+                      <a href="#" class="result-thumbnail">
+                        <img src="./dummy_images/document_thumb4.webp" alt="" loading="lazy" width="289" height="393">
+                      </a>
+                    </div>
+                  </div>
+                  <!--  -->
+
+                </div>
+              </div>
+
+              <nav class="pager">
+                <div class="pager__list">
+                  <div class="pager__item pager__item--first">
+                    <a href="#" class="pager__arrow pager__arrow--first" aria-label="最初のページ">
+                      <span class="pager__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.951 9.901">
+                          <path
+                            d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+                            transform="translate(-7 19.401) rotate(-90)" fill="currentColor" />
+                          <path
+                            d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+                            transform="translate(-14 19.401) rotate(-90)" fill="currentColor" />
+                        </svg>
+
+                      </span>
+                    </a>
+                  </div>
+                  <div class="pager__item pager__item--prev">
+                    <a href="#" class="pager__arrow pager__arrow--prev" aria-label="前のページ">
+                      <span class="pager__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.951 9.901">
+                          <path
+                            d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+                            transform="translate(-14 19.401) rotate(-90)" fill="currentColor" />
+                        </svg>
+                      </span>
+                      <span class="pager__text">戻る</span>
+                    </a>
+                  </div>
+                  <div class="pager__numbers-wrap">
+                    <div class="pager__item">
+                      <a href="#" class="pager__num">998</a>
+                    </div>
+                    <div class="pager__item">
+                      <a href="#" class="pager__num is-current">999</a>
+                    </div>
+                    <div class="pager__item">
+                      <a href="#" class="pager__num">1000</a>
+                    </div>
+                    <div class="pager__item">
+                      <a href="#" class="pager__num">1001</a>
+                    </div>
+                    <div class="pager__item">
+                      <a href="#" class="pager__num">1002</a>
+                    </div>
+                  </div>
+                  <div class="pager__item pager__item--next">
+                    <a href="#" class="pager__arrow pager__arrow--next" aria-label="次のページ">
+                      <span class="pager__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.951 9.901">
+                          <path
+                            d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+                            transform="translate(-14 19.401) rotate(-90)" fill="currentColor" />
+                        </svg>
+                      </span>
+                      <span class="pager__text">次へ</span>
+                    </a>
+                  </div>
+                  <div class="pager__item pager__item--last">
+                    <a href="#" class="pager__arrow pager__arrow--last" aria-label="最後のページ">
+                      <span class="pager__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.951 9.901">
+                          <path
+                            d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+                            transform="translate(-7 19.401) rotate(-90)" fill="currentColor" />
+                          <path
+                            d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+                            transform="translate(-14 19.401) rotate(-90)" fill="currentColor" />
+                        </svg>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </nav>
+
+            </form>
+
+            <div class="detail-sp-show-sidebar">
+              <button type="button" class="detail-sp-show-sidebar__btn" id="detail-sp-show-sidebar-btn">
+                <span class="detail-sp-show-sidebar__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.63 19.13">
+                    <path
+                      d="M18.62,13.6h-.26v-2.53c0-1.11-.9-2.01-2.01-2.01h-5.54v-3.53h.26,0c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-1.51c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h.25v3.53h-4.45s-1.09,0-1.09,0c-1.11,0-2.01.9-2.01,2.01v2.52h-.25c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-.26v-2.52c0-.27.11-.51.28-.69.02-.02.04-.03.06-.05.07-.06.15-.11.23-.16.03-.01.05-.03.08-.04.11-.04.23-.07.36-.07h5.54v3.53h-.26c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-.26v-3.53h5.54c.56,0,1.01.45,1.01,1.01v2.53h-.25c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01ZM3.52,14.59c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51ZM11.07,14.59c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51ZM9.56,4.53c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51ZM19.63,17.12c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51c.56,0,1.01.45,1.01,1.01v1.51Z"
+                      style="fill:currentColor" />
+                  </svg>
+                </span>
+                <span class="detail-sp-show-sidebar__text">
+                  資料群階層を表示する
+                </span>
+              </button>
+            </div>
+        </section>
+
+        <aside class="has-sidebar-layout__sidebar">
+          <button class="has-sidebar-layout__sidebar-toggle" type="button" aria-label="サイドバーを開閉">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.15 7.34">
+              <path id="b"
+                d="M.46,4.51C0,4.21-.14,3.59.16,3.13c.08-.12.18-.22.3-.3L4.61.16c.46-.3,1.08-.16,1.38.3.1.16.16.35.16.54v5.34c0,.55-.45,1-1,1-.19,0-.38-.06-.54-.16L.46,4.51Z"
+                fill="currentColor" />
+            </svg>
+          </button>
+          <button class="has-sidebar-layout__sidebar-sp-close">閉じる</button>
+
+          <div class="has-sidebar-layout__sidebar-container">
+            <section id="sidebar-tree" class="sidebar-tree sidebar-tree--no-check">
+              <h2 class="sidebar-tree__heading">
+                <span class="sidebar-tree__heading-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.63 19.13">
+                    <path
+                      d="M18.62,13.6h-.26v-2.53c0-1.11-.9-2.01-2.01-2.01h-5.54v-3.53h.26,0c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-1.51c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h.25v3.53h-4.45s-1.09,0-1.09,0c-1.11,0-2.01.9-2.01,2.01v2.52h-.25c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-.26v-2.52c0-.27.11-.51.28-.69.02-.02.04-.03.06-.05.07-.06.15-.11.23-.16.03-.01.05-.03.08-.04.11-.04.23-.07.36-.07h5.54v3.53h-.26c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-.26v-3.53h5.54c.56,0,1.01.45,1.01,1.01v2.53h-.25c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01ZM3.52,14.59c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51ZM11.07,14.59c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51ZM9.56,4.53c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51ZM19.63,17.12c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51c.56,0,1.01.45,1.01,1.01v1.51Z"
+                      style="fill:currentColor" />
+                  </svg>
+                </span>
+                <span class="sidebar-tree__heading-text">資料群階層</span>
+              </h2>
+              <div class="sidebar-tree__content">
+                <ul class="sidebar-tree__list">
+                  <!--  -->
+                  <li class="sidebar-tree__item">
+
+                    <span class="sidebar-tree__item-body is-open" data-tree-value="行政文書">
+                      <label class="sidebar-tree__check cmn-check-icon">
+                        <input type="checkbox" class="sidebar-tree__check-input">
+                        <span class="cmn-check-icon__icon">
+                          <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                            loading="lazy">
+                        </span>
+                      </label>
+                      <span class="sidebar-tree__label">
+                        <a href="#">行政文書</a>
+                      </span>
+                      <button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+                      </button>
+                    </span>
+
+                    <ul class="sidebar-tree__list">
+                      <!--  -->
+                      <li class="sidebar-tree__item">
+
+                        <span class="sidebar-tree__item-body is-open" data-tree-value="検索クエリ">
+                          <label class="sidebar-tree__check cmn-check-icon">
+                            <input type="checkbox" class="sidebar-tree__check-input">
+                            <span class="cmn-check-icon__icon">
+                              <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                                loading="lazy">
+                            </span>
+                          </label>
+                          <span class="sidebar-tree__label">
+                            <a href="#">内閣官房</a>
+                          </span>
+                          <button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+                          </button>
+                        </span>
+
+                        <ul class="sidebar-tree__list">
+                          <!--  -->
+                          <li class="sidebar-tree__item">
+
+                            <span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+                              <label class="sidebar-tree__check cmn-check-icon">
+                                <input type="checkbox" class="sidebar-tree__check-input">
+                                <span class="cmn-check-icon__icon">
+                                  <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                                    loading="lazy">
+                                </span>
+                              </label>
+                              <span class="sidebar-tree__label">
+                                <a href="#">内閣総務官室関係</a>
+                              </span>
+                              <button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+                              </button>
+                            </span>
+                            <ul class="sidebar-tree__list">
+                              <!--  -->
+                              <li class="sidebar-tree__item">
+
+                                <span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+                                  <label class="sidebar-tree__check cmn-check-icon">
+                                    <input type="checkbox" class="sidebar-tree__check-input">
+                                    <span class="cmn-check-icon__icon">
+                                      <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                                        loading="lazy">
+                                    </span>
+                                  </label>
+                                  <span class="sidebar-tree__label">
+                                    <a href="#">御署名原本（昭和５５年以降）</a>
+                                  </span>
+                                </span>
+
+                              </li>
+                              <!--  -->
+                              <li class="sidebar-tree__item">
+
+                                <span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+                                  <label class="sidebar-tree__check cmn-check-icon">
+                                    <input type="checkbox" class="sidebar-tree__check-input">
+                                    <span class="cmn-check-icon__icon">
+                                      <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                                        loading="lazy">
+                                    </span>
+                                  </label>
+                                  <span class="sidebar-tree__label">
+                                    <a href="#">閣議・事務次官等会議資料</a>
+                                  </span>
+                                </span>
+
+                              </li>
+                              <!--  -->
+
+                            </ul>
+
+                          </li>
+                          <!--  -->
+
+                        </ul>
+                      </li>
+                      <!--  -->
+                      <li class="sidebar-tree__item">
+
+                        <span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+                          <label class="sidebar-tree__check cmn-check-icon">
+                            <input type="checkbox" class="sidebar-tree__check-input">
+                            <span class="cmn-check-icon__icon">
+                              <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                                loading="lazy">
+                            </span>
+                          </label>
+                          <span class="sidebar-tree__label">
+                            <a href="#">国家安全保障局関係</a>
+                          </span>
+                          <button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉"></button>
+                        </span>
+
+                      </li>
+                      <!--  -->
+                      <li class="sidebar-tree__item">
+
+                        <span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+                          <label class="sidebar-tree__check cmn-check-icon">
+                            <input type="checkbox" class="sidebar-tree__check-input">
+                            <span class="cmn-check-icon__icon">
+                              <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                                loading="lazy">
+                            </span>
+                          </label>
+                          <span class="sidebar-tree__label">
+                            <a href="#">内閣副長官補関係</a>
+                          </span>
+                          <button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉"></button>
+                        </span>
+
+                      </li>
+                      <!--  -->
+
+                    </ul>
+                  </li>
+                  <!--  -->
+                  <li class="sidebar-tree__item">
+                    <span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+                      <label class="sidebar-tree__check cmn-check-icon">
+                        <input type="checkbox" class="sidebar-tree__check-input">
+                        <span class="cmn-check-icon__icon">
+                          <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                            loading="lazy">
+                        </span>
+                      </label>
+                      <span class="sidebar-tree__label">
+                        <a href="#">内閣法制局</a>
+                      </span>
+                      <button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉"></button>
+                    </span>
+                    <ul class="sidebar-tree__list">
+                      <li class="sidebar-tree__item">
+                        <span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+                          <label class="sidebar-tree__check cmn-check-icon">
+                            <input type="checkbox" class="sidebar-tree__check-input">
+                            <span class="cmn-check-icon__icon">
+                              <img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+                                loading="lazy">
+                            </span>
+                          </label>
+                          <span class="sidebar-tree__label">
+                            <a href="#">子要素子要素</a>
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                  <!--  -->
+                </ul>
+
+              </div>
+            </section>
+
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- //content -->
+    </main> <!-- //#mainContent -->
+
+    <!-- footer -->
+    <footer id="commonFooter" class="commonFooter"></footer>
+    <!-- 構築テスト用include -->
+    <script type="module">
+      fetch('./includes/footer.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const footer = fragment.querySelector('footer#commonFooter');
+          if (footer) {
+            const target = document.getElementById('commonFooter');
+            if (target) target.replaceWith(footer);
+          }
+        });
+    </script>
+    <!-- //構築テスト用include -->
+    <!-- //footer -->
+
+  </div> <!-- //#page-wrapper -->
+
+  <!-- script -->
+  <script src="./bundles/web/js/jQuery.js"></script>
+  <script src="./bundles/web/js/cookieConsent.js"></script>
+  <script src="./bundles/web/js/swiper-bundle.min.js"></script>
+  <script src="./bundles/web/js/common.js"></script>
+
+  <script src="./bundles/web/js/archive-detail.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>初めての方へ</title>
+  <link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+  <link rel="stylesheet" href="./bundles/web/css/howto.css" type="text/css">
+</head>
+
+<body>
+  <div id="page-wrapper" class="page-wrapper">
+    <!-- header -->
+    <header id="commonHeader" class="commonHeader"></header>
+    <!-- 構築テスト用include -->
+    <script type="module">
+      fetch('./includes/header.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const header = fragment.querySelector('header#commonHeader');
+          if (header) {
+            const target = document.getElementById('commonHeader');
+            if (target) target.replaceWith(header);
+          }
+        });
+    </script>
+    <!-- //構築テスト用include -->
+    <!-- //header -->
+
+    <main id="mainContent" class="mainContent hidden-box">
+      <!-- content -->
+
+      <div class="inner pb-100">
+
+        <section>
+          <div class="inner-box-l pt-30 mb-40 mb-50-sp">
+            <ol class="bread-crumb">
+              <li class="bread-crumb__item">
+                <a href="#">トップ</a>
+              </li>
+              <li class="bread-crumb__item">
+                <span class="current" aria-current="page">初めての方へ</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="inner-box-m">
+
+            <nav class="page-nav mb-50">
+              <a href="#" class="is-current">初めての方へ</a>
+              <a href="#">ご利用方法</a>
+              <a href="#">よくあるご質問</a>
+              <a href="#">データの二次利用</a>
+              <a href="#">横断検索の連携</a>
+              <a href="#">関連資料</a>
+            </nav>
+
+            <div class="pb-20 mb-50 mb-30-sp bd-bb">
+              <h2 class="fw-700 fz20">
+                <span>初めての方へ</span>
+              </h2>
+            </div>
+
+            <!-- デジタルアーカイブの概要 -->
+            <section class="mb-60">
+              <h3 class="fw-700 mb-30 color-key">デジタルアーカイブの概要</h3>
+              <p class="mb-10 fw-300">
+                「国立公文書館デジタルアーカイブ」は、インターネットを通じて、「いつでも、どこでも、だれでも、自由に、無料で」、館所蔵の特定歴史公文書等の目録情報の検索、公文書管理文化財等のデジタル画像等の閲覧、印刷、ダウンロードが可能なインターネットサービスです。
+              </p>
+              <div class="bg-box mt-30 p-20">
+                <h4 class="fw-600 mb-10">資料を探す、利用する</h4>
+                <p class="mb-10 fw-300">
+                  当館所蔵の特定歴史公文書等の目録情報について、キーワード検索や資料階層階層をたどりながら、お探しいただけます。検索ボックスにキーワードを入力して検索するほか、検索画面内の資料分類分枝をたどる階層検索機能を使ってお探し下さい。また、検索に当たって、多様な検索条件を指定して検索可能な詳細検索機能や、「自作組織検索型」及び「詳細機能」などの検索を助ける仕組みもあります。
+                </p>
+                <h4 class="fw-600 mb-10 mt-30">主な資料を見る</h4>
+                <p class="mb-10 fw-300">
+                  当館所蔵の特定歴史公文書等の中から、主な公文書や重要文化財、大判資料、色褪せ等が著物などについて、簡単な操作で、ご利用いただけます。
+                </p>
+                <p class="mb-10 fw-300">
+                  資料のデジタル画像は、画像単位で閲覧や印刷、画像化ユーアで見られるようになっており、またデジタル画像と解説もセットで印刷する、精細なデジタル画像をダウンロードするなど、自由にご利用いただけます。
+                </p>
+              </div>
+            </section>
+
+            <!-- デジタルアーカイブのご利用にあたって -->
+            <section class="mb-60">
+              <h3 class="fw-700 mb-30 color-key">デジタルアーカイブのご利用にあたって</h3>
+              <h4 class="fw-600 mb-10">ご利用環境等</h4>
+              <p class="mb-10 fw-300">
+                インターネットに接続されたパソコン、タブレット端末、スマートフォンでご利用いただけます。
+              </p>
+              <p class="mb-10 fw-300">
+                なお、本デジタルアーカイブのご利用にあたっては、大容量のデジタルデータが配信されます。ご利用にあたっては、インターネット接続プロバイダーの利用条件等をご確認の上、ご利用下さい。
+              </p>
+              <p class="mb-10 fw-300">
+                対応しているブラウザについては、こちらの<a href="#" class="cmn-text-link">「動作環境について」</a>をご確認下さい。
+              </p>
+              <h4 class="fw-600 mb-10 mt-30">プラグインについて</h4>
+              <p class="mb-10 fw-300">
+                本デジタルアーカイブのデジタル画像（PDF）の閲覧には、PDF形式対応ビューアが必要です。
+              </p>
+              <p class="mb-10 fw-300">
+                一般的なパソコン、タブレット端末等では、あらかじめPDFファイルが見られるようになっていると思いますが、見られない場合は、PDF形式対応ビューアをインストールするなどして、ご利用下さい。
+              </p>
+              <h4 class="fw-600 mb-10 mt-30">デジタル画像等の利用について</h4>
+              <p class="mb-10 fw-300">
+                デジタルアーカイブの目録やデジタル画像等、掲載している情報の二次利用については、<a href="#" class="cmn-text-link">「画像データ等の二次利用について」</a>ページをご覧ください。
+              </p>
+              <h4 class="fw-600 mb-10 mt-30">リンクについて</h4>
+              <p class="mb-10 fw-300">
+                「国立公文書館デジタルアーカイブ」へのリンクは、URLアドレス＜https://www.digital.archives.go.jp/＞へお願いします。<br>
+                なお、リンク時には、次のバナー画像をご利用になれます。
+              </p>
+              <div class="bg-box mt-30 pt-40 pb-40 px-20 flex flex-column">
+                <div class="pb-20 bd-bb flex flex-column items-center ">
+                  <figure class="mb-10">
+                    <img src="./bundles/web/images/common/da-banner.gif" alt="バナー画像" width="240" height="63"
+                      loading="lazy" />
+                  </figure>
+                  <p class="text-center fz12 fw-300">バナー画像<br>240 x 63 ピクセル GIF形式 16KB</p>
+                </div>
+                <div class="pt-20 flex flex-column items-center">
+                  <figure class="mb-10">
+                    <img src="./bundles/web/images/common/da-banner-jp.gif" alt="バナー画像" width="240" height="63"
+                      loading="lazy" />
+                  </figure>
+                  <p class="text-center fz12 fw-300">バナー画像<br>240 x 63 ピクセル GIF形式 16KB</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- 国立公文書館のご利用にあたって -->
+            <section>
+              <h3 class="fw-700 mb-30 color-key">国立公文書館のご利用にあたって</h3>
+              <h4 class="fw-600 mb-10">国立公文書館のご利用案内</h4>
+              <p class="mb-10 fw-300">
+                館覧のご利用方法、利用請求の方法や写しの交付等のご案内については、当館ホームページ<a href="#" class="cmn-text-link">「ご利用案内」</a>ページをご覧ください。
+              </p>
+              <h4 class="fw-600 mb-10 mt-30">国立公文書館利用等規則等</h4>
+              <p class="mb-10 fw-300">
+                国立公文書館利用等規則等については、当館ホームページ<a href="#" class="cmn-text-link">「利用等規則等」</a>ページをご覧ください。
+              </p>
+            </section>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <!-- //content -->
+    </main> <!-- //#mainContent -->
+
+    <!-- footer -->
+    <footer id="commonFooter" class="commonFooter"></footer>
+    <!-- 構築テスト用include -->
+    <script type="module">
+      fetch('./includes/footer.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const footer = fragment.querySelector('footer#commonFooter');
+          if (footer) {
+            const target = document.getElementById('commonFooter');
+            if (target) target.replaceWith(footer);
+          }
+        });
+    </script>
+    <!-- //構築テスト用include -->
+    <!-- //footer -->
+
+  </div> <!-- //#page-wrapper -->
+
+  <!-- script -->
+  <script src="./bundles/web/js/jQuery.js"></script>
+  <script src="./bundles/web/js/cookieConsent.js"></script>
+  <script src="./bundles/web/js/swiper-bundle.min.js"></script>
+  <script src="./bundles/web/js/common.js"></script>
+
+</body>
+
+</html>

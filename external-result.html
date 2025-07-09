@@ -1,0 +1,2230 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DA検索結果一覧（横断検索）</title>
+	<link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+	<link rel="stylesheet" href="./bundles/web/css/external-result.css" type="text/css">
+</head>
+
+<body>
+	<div id="page-wrapper" class="page-wrapper">
+		<!-- header -->
+		<header id="commonHeader" class="commonHeader"></header>
+		<!-- 構築テスト用include -->
+		<script type="module">
+			fetch('./includes/header.html')
+				.then(r => r.text())
+				.then(html => {
+					const range = document.createRange();
+					const fragment = range.createContextualFragment(html);
+					const header = fragment.querySelector('header#commonHeader');
+					if (header) {
+						const target = document.getElementById('commonHeader');
+						if (target) target.replaceWith(header);
+					}
+				});
+		</script>
+		<!-- //構築テスト用include -->
+		<!-- //header -->
+
+		<main id="mainContent" class="mainContent hidden-box">
+			<!-- content -->
+
+			<div class="inner pb-100">
+
+				<section class="inner-box-l">
+					<div class="pt-30">
+
+						<ol class="bread-crumb mb-30 mb-50-sp">
+							<li class="bread-crumb__item">
+								<a href="#">トップ</a>
+							</li>
+							<li class="bread-crumb__item">
+								<a href="#">詳細検索</a>
+							</li>
+							<li class="bread-crumb__item">
+								<span class="current" aria-current="page">他機関との横断検索結果一覧​</span>
+							</li>
+						</ol>
+
+						<div class="title-header mb-20">
+							<h2 class="title-header-heading">
+								<span class="search-form-heading__ttl">
+									他機関との横断検索　<br class="br-sp">検索結果一覧​
+								</span>
+							</h2>
+							<a href="#" class="prev-link">
+								<span class="prev-link__icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 7" aria-hidden="true" focusable="false">
+										<path
+											d="M3.659 1.308a1 1 0 0 1 1.682 0l2.669 4.151A1 1 0 0 1 7.168 7H1.832a1 1 0 0 1-.842-1.541l2.669-4.151z"
+											fill="#fff" transform="translate(9 7) rotate(180)" />
+									</svg>
+								</span>
+								<span>検索画面に戻る</span>
+							</a>
+						</div>
+
+						<form class="external-finder-form">
+
+							<div class="external-finder-nav-btns">
+								<label class="cmn-check-item">
+									<span class="cmn-check-item__icon cmn-check-icon">
+										<input type="checkbox" id="select-all-page">
+										<span class="cmn-check-icon__icon">
+											<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7" loading="lazy">
+										</span>
+									</span>
+									<span class="cmn-check-item__text">当ページ全てを選択/解除</span>
+								</label>
+								<button type="button" class="cmn-button cmn-button--has-icon pl">
+									<span class="cmn-button__icon-left w-15 color-key">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.75 12.374" class="reset-svg">
+											<g transform="translate(-2.25 -5.625)">
+												<path
+													d="M17.859,20.431h-1.3V16.172a.141.141,0,0,0-.141-.141H15.361a.141.141,0,0,0-.141.141v4.259h-1.3a.14.14,0,0,0-.111.227l1.969,2.491a.141.141,0,0,0,.221,0l1.969-2.491A.14.14,0,0,0,17.859,20.431Z"
+													transform="translate(-5.765 -5.203)" fill="currentColor" />
+												<path
+													d="M15.388,9.258a5.624,5.624,0,0,0-10.519,0,3.516,3.516,0,0,0,.895,6.915h.7a.141.141,0,0,0,.141-.141V14.977a.141.141,0,0,0-.141-.141h-.7a2.181,2.181,0,0,1-1.717-3.523,2.2,2.2,0,0,1,1.162-.768l.666-.174.244-.643a4.227,4.227,0,0,1,.628-1.114,4.317,4.317,0,0,1,.921-.877,4.286,4.286,0,0,1,4.922,0,4.319,4.319,0,0,1,.921.877,4.255,4.255,0,0,1,.628,1.114l.243.642.664.176a2.19,2.19,0,0,1,1.619,2.111,2.179,2.179,0,0,1-2.178,2.18h-.7a.141.141,0,0,0-.141.141v1.055a.141.141,0,0,0,.141.141h.7a3.516,3.516,0,0,0,.9-6.913Z"
+													fill="currentColor" />
+											</g>
+										</svg>
+									</span>
+									<span>選択した資料をCSV出力</span>
+								</button>
+								<div class="external-finder-nav-btns__sort">
+									<div class="external-finder-nav-btns__sort-label">表示数</div>
+									<div class="cmn-select-wrap">
+										<select class="cmn-select-wrap__select cmn-select-wrap__select--left">
+											<option value="20" selected>20件</option>
+											<option value="50">50件</option>
+											<option value="100">100件</option>
+											<option value="200">200件</option>
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="pt-50 pt-0-sp mt-20 container-bt100">
+
+								<div class="archive-result-table">
+									<div class="archive-result-table__header">
+										<div class="archive-result-table__header-item cell-request">
+											<span class="archive-result-table__header-item-label">
+												CSV出力
+											</span>
+										</div>
+										<div class="archive-result-table__header-item cell-number">
+											<span class="archive-result-table__header-item-label">
+												NO.
+											</span>
+										</div>
+										<div class="archive-result-table__header-item cell-summary">
+											<span class="archive-result-table__header-item-label">
+												簡易情報
+											</span>
+										</div>
+										<div class="archive-result-table__header-item cell-database">
+											<span class="archive-result-table__header-item-label">
+												データベース
+											</span>
+											<span class="archive-result-table__header-item-icon w-13">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13">
+													<g transform="translate(-1137.661 -562.929)">
+														<path d="M16.486,4.5l2.262,2.262-4.809,4.809.971.971L19.72,7.734,21.982,10V4.5Z"
+															transform="translate(1128.679 558.429)" fill="currentColor" />
+														<path
+															d="M16.055,16.055H5.944V5.944H11L9.555,4.5H5.944A1.446,1.446,0,0,0,4.5,5.944V16.055A1.446,1.446,0,0,0,5.944,17.5H16.055A1.446,1.446,0,0,0,17.5,16.055V12.444L16.055,11Z"
+															transform="translate(1133.161 558.429)" fill="currentColor" />
+													</g>
+												</svg>
+											</span>
+										</div>
+									</div>
+									<div class="archive-result-table__body">
+										<!--  -->
+										<div class="archive-result-table__body-item">
+											<div class="archive-result-table__body-item-cell cell-request">
+												<label class="cmn-check-icon">
+													<input type="checkbox" class="csv-export">
+													<span class="cmn-check-icon__icon">
+														<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+															loading="lazy">
+													</span>
+												</label>
+											</div>
+											<div class="archive-result-table__body-item-cell cell-number">
+												<span class="archive-result-table__body-item-cell-label">
+													1
+												</span>
+											</div>
+											<div class="archive-result-table__body-item-cell cell-summary">
+												<h3 class="result-header__title mt-20-sp">
+													<a href="#">
+														詳細表示
+													</a>
+												</h3>
+												<dl class="result-external-summary">
+													<div class="result-external-summary__item">
+														<dt class="result-external-summary__label">[タイトル]</dt>
+														<dd class="result-external-summary__value">令和4年3月</dd>
+													</div>
+													<div class="result-external-summary__item">
+														<dt class="result-external-summary__label">[作成者]</dt>
+														<dd class="result-external-summary__value">公正取引委員会事務総局官房国際課</dd>
+													</div>
+													<div class="result-external-summary__item">
+														<dt class="result-external-summary__label">[日付]</dt>
+														<dd class="result-external-summary__value">2022-00-00</dd>
+													</div>
+													<div class="result-external-summary__item">
+														<dt class="result-external-summary__label">[資源識別子]</dt>
+														<dd class="result-external-summary__value">https://www.digital.archives.go.jp/item/5142903 / 令4公取E00006100-00001300</dd>
+													</div>
+												</dl>
+											</div>
+											<div class="archive-result-table__body-item-cell cell-database">
+												<a href="#">
+													国立公文書館デジタルアーカイブ​
+													<span class="icon w-13">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13">
+															<g transform="translate(-1137.661 -562.929)">
+																<path d="M16.486,4.5l2.262,2.262-4.809,4.809.971.971L19.72,7.734,21.982,10V4.5Z"
+																	transform="translate(1128.679 558.429)" fill="currentColor" />
+																<path
+																	d="M16.055,16.055H5.944V5.944H11L9.555,4.5H5.944A1.446,1.446,0,0,0,4.5,5.944V16.055A1.446,1.446,0,0,0,5.944,17.5H16.055A1.446,1.446,0,0,0,17.5,16.055V12.444L16.055,11Z"
+																	transform="translate(1133.161 558.429)" fill="currentColor" />
+															</g>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+										<!--  -->
+										<div class="archive-result-table__body-item">
+											<div class="archive-result-table__body-item-cell cell-request">
+												<label class="cmn-check-icon">
+													<input type="checkbox" class="csv-export">
+													<span class="cmn-check-icon__icon">
+														<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+															loading="lazy">
+													</span>
+												</label>
+											</div>
+											<div class="archive-result-table__body-item-cell cell-number">
+												<span class="archive-result-table__body-item-cell-label">
+													2
+												</span>
+											</div>
+											<div class="archive-result-table__body-item-cell cell-summary">
+												<h3 class="result-header__title mt-20-sp">
+													<a href="#">
+														詳細表示
+													</a>
+												</h3>
+												<dl class="result-external-summary">
+													<div class="result-external-summary__item">
+														<dt class="result-external-summary__label">[タイトル]</dt>
+														<dd class="result-external-summary__value">令和4年3月</dd>
+													</div>
+													<div class="result-external-summary__item">
+														<dt class="result-external-summary__label">[作成者]</dt>
+														<dd class="result-external-summary__value">公正取引委員会事務総局官房国際課</dd>
+													</div>
+													<div class="result-external-summary__item">
+														<dt class="result-external-summary__label">[日付]</dt>
+														<dd class="result-external-summary__value">2022-00-00</dd>
+													</div>
+													<div class="result-external-summary__item">
+														<dt class="result-external-summary__label">[資源識別子]</dt>
+														<dd class="result-external-summary__value">https://www.digital.archives.go.jp/item/5142903 / 令4公取E00006100-00001300</dd>
+													</div>
+												</dl>
+											</div>
+											<div class="archive-result-table__body-item-cell cell-database">
+												<a href="#">
+													国立公文書館デジタルアーカイブ​
+													<span class="icon w-13">
+														<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13">
+															<g transform="translate(-1137.661 -562.929)">
+																<path d="M16.486,4.5l2.262,2.262-4.809,4.809.971.971L19.72,7.734,21.982,10V4.5Z"
+																	transform="translate(1128.679 558.429)" fill="currentColor" />
+																<path
+																	d="M16.055,16.055H5.944V5.944H11L9.555,4.5H5.944A1.446,1.446,0,0,0,4.5,5.944V16.055A1.446,1.446,0,0,0,5.944,17.5H16.055A1.446,1.446,0,0,0,17.5,16.055V12.444L16.055,11Z"
+																	transform="translate(1133.161 558.429)" fill="currentColor" />
+															</g>
+														</svg>
+													</span>
+												</a>
+											</div>
+										</div>
+										<!--  -->
+									</div>
+								</div>
+
+								<nav class="pager">
+									<div class="pager__list">
+										<div class="pager__item pager__item--first">
+											<a href="#" class="pager__arrow pager__arrow--first" aria-label="最初のページ">
+												<span class="pager__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.951 9.901">
+														<path
+															d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+															transform="translate(-7 19.401) rotate(-90)" fill="currentColor" />
+														<path
+															d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+															transform="translate(-14 19.401) rotate(-90)" fill="currentColor" />
+													</svg>
+												</span>
+											</a>
+										</div>
+										<div class="pager__item pager__item--prev">
+											<a href="#" class="pager__arrow pager__arrow--prev" aria-label="前のページ">
+												<span class="pager__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.951 9.901">
+														<path
+															d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+															transform="translate(-14 19.401) rotate(-90)" fill="currentColor" />
+													</svg>
+												</span>
+												<span class="pager__text">戻る</span>
+											</a>
+										</div>
+										<div class="pager__numbers-wrap">
+											<div class="pager__item">
+												<a href="#" class="pager__num">998</a>
+											</div>
+											<div class="pager__item">
+												<a href="#" class="pager__num is-current">999</a>
+											</div>
+											<div class="pager__item">
+												<a href="#" class="pager__num">1000</a>
+											</div>
+											<div class="pager__item">
+												<a href="#" class="pager__num">1001</a>
+											</div>
+											<div class="pager__item">
+												<a href="#" class="pager__num">1002</a>
+											</div>
+										</div>
+										<div class="pager__item pager__item--next">
+											<a href="#" class="pager__arrow pager__arrow--next" aria-label="次のページ">
+												<span class="pager__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.951 9.901">
+														<path
+															d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+															transform="translate(-14 19.401) rotate(-90)" fill="currentColor" />
+													</svg>
+												</span>
+												<span class="pager__text">次へ</span>
+											</a>
+										</div>
+										<div class="pager__item pager__item--last">
+											<a href="#" class="pager__arrow pager__arrow--last" aria-label="最後のページ">
+												<span class="pager__icon">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.951 9.901">
+														<path
+															d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+															transform="translate(-7 19.401) rotate(-90)" fill="currentColor" />
+														<path
+															d="M14.451,19.951a1,1,0,0,1-.707-.293L9.793,15.707a1,1,0,0,1,1.414-1.414l3.244,3.244,3.244-3.244a1,1,0,1,1,1.414,1.414l-3.951,3.951A1,1,0,0,1,14.451,19.951Z"
+															transform="translate(-14 19.401) rotate(-90)" fill="currentColor" />
+													</svg>
+												</span>
+											</a>
+										</div>
+									</div>
+								</nav>
+							</div>
+
+
+							<div class="external-finder-form-wrap">
+								<section class="external-finder-institution">
+									<div class="pt-50 container-bt100">
+										<div class="external-finder-institution__header-wrap">
+											<div class="external-finder-institution__header">
+												<h3 class="external-finder-institution__heading fw-700">
+													各データベースの検索状況
+												</h3>
+												<div class="external-finder-institution__status">
+													<span class="external-finder-institution__status-item">
+														<span class="external-finder-institution__status-item-label">
+															検索完了
+														</span>
+														<span class="external-finder-institution__status-item-value">
+															<span class="external-finder-institution__status-item-value-num completed">123456</span>件
+														</span>
+													</span>
+													<span class="external-finder-institution__status-item">
+														<span class="external-finder-institution__status-item-label">
+															検索中
+														</span>
+														<span class="external-finder-institution__status-item-value">
+															<span class="external-finder-institution__status-item-value-num searching">123456</span>件
+														</span>
+													</span>
+												</div>
+												<div class="external-finder-institution__btns">
+													<div
+														class="external-finder-institution__btn-wrap external-finder-institution__btn-wrap-reload">
+														<button type="button" class="cmn-button cmn-button--bk cmn-button--has-icon pl"
+															id="external-reload">
+															<span class="cmn-button__icon-left w-13">
+																<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.288 13.61">
+																	<path
+																		d="M16.663,5.135l-.914.715a6.8,6.8,0,1,0,1.034,6.522A.13.13,0,0,0,16.7,12.2l-.919-.316a.13.13,0,0,0-.164.078c-.029.081-.062.162-.1.241a5.574,5.574,0,1,1-.744-5.6l-.975.762a.13.13,0,0,0,.049.228l2.845.7a.13.13,0,0,0,.16-.125l.013-2.931a.131.131,0,0,0-.211-.1Z"
+																		transform="translate(-3.586 -3.234)" fill="currentColor" />
+																</svg>
+															</span>
+															<span class="text">再表示</span>
+														</button>
+													</div>
+													<div
+														class="external-finder-institution__btn-wrap external-finder-institution__btn-wrap-check">
+														<label class="cmn-check-item">
+															<span class="cmn-check-item__icon cmn-check-icon">
+																<input type="checkbox" id="external-checkAll" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</span>
+															<span class="cmn-check-item__text">全選択/全解除</span>
+														</label>
+													</div>
+													<div
+														class="external-finder-institution__btn-wrap external-finder-institution__btn-wrap-toggle">
+														<button type="button" class="cmn-button cmn-button--bk cmn-button--has-icon is-close"
+															id="external-toggleAll">
+															<span class="text"></span>
+															<span class="cmn-button__icon-right icon-opener"></span>
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="external-finder-institution__list-wrap">
+											<ul class="external-finder-institution__list">
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">国立公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">国立公文書館デジタルアーカイブ</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">アジア歴史資料データベース</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">国立国会図書館</a>
+														</span>
+														<span class="external-finder-institution__list-status searching">
+															検索中
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">外務省外交史料館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">東京大学文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">神戸大学大学文書史料室</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">埼玉県立文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">越谷市役所</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">八潮市立資料館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">千葉県文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">東京都公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">神奈川県立公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">新潟市文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">富山県公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">石川県立図書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">福井県文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">静岡県公文書センター</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">愛知県公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">名古屋市市政資料館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">三重県総合博物館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">滋賀県立公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">京都府立京都学・歴彩館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">大阪府公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">兵庫県公館県政資料館（歴史資料部門）</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">奈良県立図書情報館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">鳥取県立公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">岡山県立記録資料館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">広島県立文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">香川県立文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">福岡共同公文書館</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+												<!--  -->
+												<li class="external-finder-institution__list-item">
+													<span class="external-finder-institution__list-item-body is-close">
+														<label class="external-finder-institution__check cmn-check-icon">
+															<input type="checkbox" class="external-finder-institution__check-input" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</label>
+														<span class="external-finder-institution__list-text">
+															<a href="#">国立情報学研究所</a>
+														</span>
+														<span class="external-finder-institution__list-status completed">
+															<span class="external-finder-institution__list-status-num">00000</span>
+															<span class="external-finder-institution__list-status-unit">件</span>
+														</span>
+														<span class="external-finder-institution__opener icon-opener"></span>
+													</span>
+
+													<ul class="external-finder-institution__child-list">
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+														<li class="external-finder-institution__child-list-item">
+															<span class="external-finder-institution__list-item-body">
+																<label class="external-finder-institution__check cmn-check-icon">
+																	<input type="checkbox" class="external-finder-institution__check-input" checked>
+																	<span class="cmn-check-icon__icon">
+																		<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																			loading="lazy">
+																	</span>
+																</label>
+																<span class="external-finder-institution__list-text">
+																	<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+																</span>
+																<span class="external-finder-institution__list-status completed">
+																	<span class="external-finder-institution__list-status-num">00000</span>
+																	<span class="external-finder-institution__list-status-unit">件</span>
+																</span>
+															</span>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+
+									</div>
+								</section>
+
+							</div>
+
+						</form>
+
+					</div>
+				</section>
+
+			</div>
+
+			<!-- //content -->
+		</main> <!-- //#mainContent -->
+
+		<!-- footer -->
+		<footer id="commonFooter" class="commonFooter"></footer>
+		<!-- 構築テスト用include -->
+		<script type="module">
+			fetch('./includes/footer.html')
+				.then(r => r.text())
+				.then(html => {
+					const range = document.createRange();
+					const fragment = range.createContextualFragment(html);
+					const footer = fragment.querySelector('footer#commonFooter');
+					if (footer) {
+						const target = document.getElementById('commonFooter');
+						if (target) target.replaceWith(footer);
+					}
+				});
+		</script>
+		<!-- //構築テスト用include -->
+		<!-- //footer -->
+
+	</div> <!-- //#page-wrapper -->
+
+	<!-- script -->
+	<script src="./bundles/web/js/jQuery.js"></script>
+	<script src="./bundles/web/js/cookieConsent.js"></script>
+	<script src="./bundles/web/js/swiper-bundle.min.js"></script>
+	<script src="./bundles/web/js/common.js"></script>
+</body>
+
+</html>
+
+</html>

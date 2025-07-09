@@ -1,0 +1,2282 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DA詳細検索（他機関横断）</title>
+	<link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+	<link rel="stylesheet" href="./bundles/web/css/external-finder.css" type="text/css">
+</head>
+
+<body>
+	<div id="page-wrapper" class="page-wrapper">
+		<!-- header -->
+		<header id="commonHeader" class="commonHeader"></header>
+		<!-- 構築テスト用include -->
+		<script type="module">
+			fetch('./includes/header.html')
+				.then(r => r.text())
+				.then(html => {
+					const range = document.createRange();
+					const fragment = range.createContextualFragment(html);
+					const header = fragment.querySelector('header#commonHeader');
+					if (header) {
+						const target = document.getElementById('commonHeader');
+						if (target) target.replaceWith(header);
+					}
+				});
+		</script>
+		<!-- //構築テスト用include -->
+		<!-- //header -->
+
+		<main id="mainContent" class="mainContent mainContent--has-sidebar">
+			<!-- content -->
+
+			<div class="has-sidebar-layout">
+
+				<section class="has-sidebar-layout__main">
+					<div class="has-sidebar-layout__main-container pt-30">
+
+						<ol class="bread-crumb mb-30 mb-50-sp">
+							<li class="bread-crumb__item">
+								<a href="#">トップ</a>
+							</li>
+							<li class="bread-crumb__item">
+								<span class="current" aria-current="page">詳細検索［他機関との横断検索］</span>
+							</li>
+						</ol>
+
+						<div class="search-form-header mb-40">
+							<h2 class="search-form-heading">
+								<span class="search-form-heading__icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.686 19.688">
+										<path id="Icon_box-search-alt-2" data-name="Icon box-search-alt-2"
+											d="M20.582,18.469q-.726-.7-1.412-1.429c-.384-.39-.616-.674-.616-.674l-2.892-1.381a7.241,7.241,0,1,0-.679.68l1.381,2.892s.284.231.674.616.925.882,1.429,1.412l1.4,1.438.624.667L22.686,20.5l-.667-.624C21.628,19.49,21.1,18.979,20.582,18.469ZM10.23,15.394a5.164,5.164,0,1,1,5.164-5.164A5.17,5.17,0,0,1,10.23,15.394Z"
+											transform="translate(-3 -3)" fill="currentColor" />
+									</svg>
+								</span>
+								<span class="search-form-heading__ttl">
+									詳細検索
+								</span>
+								<span class="search-form-heading__sub-ttl">
+									［他機関との横断検索］
+								</span>
+							</h2>
+							<p class="search-form-description">
+								キーワードを入力して<br class="br-sp">「検索」ボタンをクリックしてください。
+							</p>
+						</div>
+
+						<nav class="search-form-tabs">
+							<span class="search-form-tabs__item">
+								<span>所蔵資料検索</span>
+							</span>
+							<a href="#" class="search-form-tabs__item is-current">
+								<span>他機関との横断検索</span>
+							</a>
+						</nav>
+
+						<form class="external-finder-form">
+							<div class="external-finder-form-wrap">
+								<dl class="external-finder-container">
+									<div class="external-finder-form-container__row">
+										<dt class="external-finder-form-container__label-wrap">
+											<div class="cmn-select-wrap">
+												<select class="cmn-select-wrap__select">
+													<option value="すべて" selected>すべて</option>
+													<option value="タイトル">タイトル</option>
+													<option value="作成者">作成者</option>
+													<option value="公開者">公開者</option>
+													<option value="日付">日付</option>
+												</select>
+											</div>
+										</dt>
+										<dd class="external-finder-form-container__content-wrap">
+											<input type="text" class="cmn-input">
+										</dd>
+									</div>
+
+									<div class="external-finder-form-container__row">
+										<dt class="external-finder-form-container__label-wrap">
+											<div class="cmn-select-wrap">
+												<select class="cmn-select-wrap__select">
+													<option value="すべて">すべて</option>
+													<option value="タイトル" selected>タイトル</option>
+													<option value="作成者">作成者</option>
+													<option value="公開者">公開者</option>
+													<option value="日付">日付</option>
+												</select>
+											</div>
+										</dt>
+										<dd class="external-finder-form-container__content-wrap">
+											<input type="text" class="cmn-input">
+										</dd>
+									</div>
+
+									<div class="external-finder-form-container__row">
+										<dt class="external-finder-form-container__label-wrap">
+											<div class="cmn-select-wrap">
+												<select class="cmn-select-wrap__select">
+													<option value="すべて">すべて</option>
+													<option value="タイトル">タイトル</option>
+													<option value="作成者" selected>作成者</option>
+													<option value="公開者">公開者</option>
+													<option value="日付">日付</option>
+												</select>
+											</div>
+										</dt>
+										<dd class="external-finder-form-container__content-wrap">
+											<input type="text" class="cmn-input">
+										</dd>
+									</div>
+
+									<div class="external-finder-form-container__row">
+										<dt class="external-finder-form-container__label-wrap">
+											<div class="cmn-select-wrap">
+												<select class="cmn-select-wrap__select">
+													<option value="すべて">すべて</option>
+													<option value="タイトル">タイトル</option>
+													<option value="作成者">作成者</option>
+													<option value="公開者" selected>公開者</option>
+													<option value="日付">日付</option>
+												</select>
+											</div>
+										</dt>
+										<dd class="external-finder-form-container__content-wrap">
+											<input type="text" class="cmn-input">
+										</dd>
+									</div>
+
+									<div class="external-finder-form-container__row">
+										<dt class="external-finder-form-container__label-wrap">
+											<div class="cmn-select-wrap">
+												<select class="cmn-select-wrap__select">
+													<option value="すべて">すべて</option>
+													<option value="タイトル">タイトル</option>
+													<option value="作成者">作成者</option>
+													<option value="公開者">公開者</option>
+													<option value="日付" selected>日付</option>
+												</select>
+											</div>
+										</dt>
+										<dd class="external-finder-form-container__content-wrap">
+											<input type="text" class="cmn-input">
+										</dd>
+									</div>
+								</dl>
+
+								<div class="form-submit-wrapper mt-20">
+									<button type="submit" class="form-submit">
+										<span class="form-submit__icon">
+											<img src="./bundles/web/images/common/icon_search.svg" alt="" width="17" height="17"
+												loading="lazy">
+										</span>
+										<span class="form-submit__text">検索</span>
+									</button>
+									<button type="reset" class="form-reset">
+										<span class="form-reset__text">入力をクリア</span>
+									</button>
+								</div>
+
+								<section class="external-finder-institution">
+									<div class="external-finder-institution__header-wrap">
+										<div class="external-finder-institution__header">
+											<h3 class="external-finder-institution__heading fw-700">
+												横断検索する他機関を選択
+											</h3>
+											<div class="external-finder-institution__btns">
+												<div class="external-finder-institution__btn-wrap external-finder-institution__btn-wrap-check">
+													<label class="cmn-check-item">
+														<span class="cmn-check-item__icon cmn-check-icon">
+															<input type="checkbox" id="external-checkAll" checked>
+															<span class="cmn-check-icon__icon">
+																<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																	loading="lazy">
+															</span>
+														</span>
+														<span class="cmn-check-item__text">全選択/全解除</span>
+													</label>
+												</div>
+												<div class="external-finder-institution__btn-wrap external-finder-institution__btn-wrap-toggle">
+													<button type="button" class="cmn-button cmn-button--bk cmn-button--has-icon is-close"
+														id="external-toggleAll">
+														<span class="text"></span>
+														<span class="cmn-button__icon-right icon-opener"></span>
+													</button>
+												</div>
+											</div>
+										</div>
+										<div class="external-finder-institution__caption">
+											<span class="jad-mark">
+												<span>JAD</span>
+											</span>
+											<span class="fz12 fw-500">
+												マークをクリックすると、ジャパン・アーカイブズ・ディスカバリー（Japan Archives Discovery）へリンクします。
+											</span>
+										</div>
+									</div>
+
+									<div class="external-finder-institution__list-wrap">
+										<ul class="external-finder-institution__list">
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">国立公文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">国立公文書館デジタルアーカイブ</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">アジア歴史資料データベース</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">国立国会図書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">外務省外交史料館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">東京大学文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">神戸大学大学文書史料室</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">埼玉県立文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">越谷市役所</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">八潮市立資料館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">千葉県文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">東京都公文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">神奈川県立公文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">新潟市文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">富山県公文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">石川県立図書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">福井県文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">静岡県公文書センター</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">愛知県公文書館</a>
+													</span>
+													<a href="#" class="jad-mark">
+														<span>JAD</span>
+													</a>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">名古屋市市政資料館</a>
+													</span>
+													<a href="#" class="jad-mark">
+														<span>JAD</span>
+													</a>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">三重県総合博物館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">滋賀県立公文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">京都府立京都学・歴彩館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">大阪府公文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">兵庫県公館県政資料館（歴史資料部門）</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">奈良県立図書情報館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">鳥取県立公文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">岡山県立記録資料館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">広島県立文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">香川県立文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">福岡共同公文書館</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+											<!--  -->
+											<li class="external-finder-institution__list-item">
+												<span class="external-finder-institution__list-item-body is-close">
+													<label class="external-finder-institution__check cmn-check-icon">
+														<input type="checkbox" class="external-finder-institution__check-input" checked>
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="external-finder-institution__list-text">
+														<a href="#">国立情報学研究所</a>
+													</span>
+													<span class="external-finder-institution__opener icon-opener"></span>
+												</span>
+
+												<ul class="external-finder-institution__child-list">
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+													<li class="external-finder-institution__child-list-item">
+														<span class="external-finder-institution__list-item-body">
+															<label class="external-finder-institution__check cmn-check-icon">
+																<input type="checkbox" class="external-finder-institution__check-input" checked>
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="external-finder-institution__list-text">
+																<a href="#">子要素子要素子要素子要素子要素子要素子要素子要素子要素</a>
+															</span>
+														</span>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+
+								</section>
+
+							</div>
+
+						</form>
+
+					</div>
+				</section>
+
+				<aside class="has-sidebar-layout__sidebar">
+					<button class="has-sidebar-layout__sidebar-toggle" type="button" aria-label="サイドバーを開閉">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.15 7.34">
+							<path id="b"
+								d="M.46,4.51C0,4.21-.14,3.59.16,3.13c.08-.12.18-.22.3-.3L4.61.16c.46-.3,1.08-.16,1.38.3.1.16.16.35.16.54v5.34c0,.55-.45,1-1,1-.19,0-.38-.06-.54-.16L.46,4.51Z"
+								fill="currentColor" />
+						</svg>
+					</button>
+					<button class="has-sidebar-layout__sidebar-sp-close">閉じる</button>
+
+					<div class="has-sidebar-layout__sidebar-container">
+						<section id="sidebar-tree" class="sidebar-tree">
+							<h2 class="sidebar-tree__heading">
+								<span class="sidebar-tree__heading-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.63 19.13">
+										<path
+											d="M18.62,13.6h-.26v-2.53c0-1.11-.9-2.01-2.01-2.01h-5.54v-3.53h.26,0c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-1.51c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h.25v3.53h-4.45s-1.09,0-1.09,0c-1.11,0-2.01.9-2.01,2.01v2.52h-.25c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-.26v-2.52c0-.27.11-.51.28-.69.02-.02.04-.03.06-.05.07-.06.15-.11.23-.16.03-.01.05-.03.08-.04.11-.04.23-.07.36-.07h5.54v3.53h-.26c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-.26v-3.53h5.54c.56,0,1.01.45,1.01,1.01v2.53h-.25c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01ZM3.52,14.59c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51ZM11.07,14.59c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51ZM9.56,4.53c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51ZM19.63,17.12c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51c.56,0,1.01.45,1.01,1.01v1.51Z"
+											style="fill:currentColor" />
+									</svg>
+								</span>
+								<span class="sidebar-tree__heading-text">資料群階層</span>
+							</h2>
+							<div class="sidebar-tree__content">
+								<ul class="sidebar-tree__list">
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="行政文書">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">行政文書</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="司法文書">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">司法文書</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">司法行政文書</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">最高裁判所事務総局</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">新規公表（令和5年度）</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="法人文書">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">法人文書</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="寄贈・寄託文書">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">寄贈・寄託文書</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="内閣文庫">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">内閣文庫</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="官報">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">官報</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+								</ul>
+							</div>
+						</section>
+					</div>
+				</aside>
+
+			</div>
+
+			<!-- //content -->
+		</main> <!-- //#mainContent -->
+
+		<!-- footer -->
+		<footer id="commonFooter" class="commonFooter"></footer>
+		<!-- 構築テスト用include -->
+		<script type="module">
+			fetch('./includes/footer.html')
+				.then(r => r.text())
+				.then(html => {
+					const range = document.createRange();
+					const fragment = range.createContextualFragment(html);
+					const footer = fragment.querySelector('footer#commonFooter');
+					if (footer) {
+						const target = document.getElementById('commonFooter');
+						if (target) target.replaceWith(footer);
+					}
+				});
+		</script>
+		<!-- //構築テスト用include -->
+		<!-- //footer -->
+
+	</div> <!-- //#page-wrapper -->
+
+	<!-- script -->
+	<script src="./bundles/web/js/jQuery.js"></script>
+	<script src="./bundles/web/js/cookieConsent.js"></script>
+	<script src="./bundles/web/js/swiper-bundle.min.js"></script>
+	<script src="./bundles/web/js/common.js"></script>
+
+	<script src="./bundles/web/js/external-finder.js"></script>
+</body>
+
+</html>

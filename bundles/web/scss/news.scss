@@ -1,0 +1,45 @@
+@use "base" as *;
+
+// お知らせ一覧
+.news-list {
+  .news-item {
+    padding: torem(30) 0;
+    border-bottom: torem(1) solid var(--gray-color);
+
+    &:first-child {
+      border-top: none;
+    }
+
+    @include media(sp) {
+      border-bottom-width: torem(0.25);
+    }
+
+    &__date {
+      font-size: torem(12);
+      color: var(--key-color);
+      margin-bottom: torem(15);
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    &__title {
+      font-weight: 600;
+      margin-bottom: torem(15);
+      line-height: 1.6;
+    }
+
+    &__body {
+      line-height: 1.8;
+      font-weight: 300;
+
+      a {
+        color: var(--link-color);
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@use "base" as *;
+
+.external-finder-nav-btns {
+  display: flex;
+  align-items: center;
+  gap: torem(10);
+  margin-top: torem(20);
+  padding-top: torem(20);
+  border-top: torem(1) solid var(--gray-color);
+
+  @include media(sp) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: torem(20) torem(10);
+  }
+
+  .cmn-button {
+    @include media(spmin) {
+      width: torem(200);
+    }
+  }
+
+  .cmn-button,
+  .cmn-check-item {
+    @include media(sp) {
+      @include fzrem(11);
+      letter-spacing: 0;
+    }
+  }
+
+  &__sort {
+    display: flex;
+    align-items: center;
+    gap: torem(10);
+    margin-left: auto;
+    @include media(sp) {
+      width: 100%;
+      justify-content: flex-end;
+      padding-top: torem(20);
+      border-top: torem(1) solid var(--gray-color);
+      grid-column: 1/3;
+    }
+  }
+}

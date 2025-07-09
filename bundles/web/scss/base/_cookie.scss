@@ -1,0 +1,66 @@
+@use 'mixin' as *;
+@use 'variables' as *;
+
+.cookie-consent {
+  position: fixed;
+  z-index: 150;
+  width: torem(472);
+  border-radius: torem(5);
+  background: var(--bg2-color);
+  border: torem(1) solid var(--key-color);
+  box-shadow: 0 torem(3) torem(6) rgba(0, 0, 0, 0.16);
+  bottom: torem(20);
+  left: torem(20);
+  padding: torem(20);
+  display: flex;
+  flex-direction: column;
+  gap: torem(10);
+
+  @include media(sp) {
+    width: calc(100% - torem(40));
+    padding: torem(14);
+  }
+
+  &__text {
+    font-weight: bold;
+    line-height: 1.75;
+
+    @include media(sp) {
+      @include fzrem(13);
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: torem(10);
+  }
+
+  &__button {
+    @include button-reset;
+    background-color: $main;
+    border: torem(1) solid #fff;
+    border-radius: torem(5);
+    text-align: center;
+    font-weight: 500;
+    padding: 0.8em;
+    color: #fff;
+    @include trahv;
+    @include media(sp){
+      font-weight: bold;
+    }
+
+    @include dark {
+      border-color: #F2F2F2;
+    }
+  }
+}

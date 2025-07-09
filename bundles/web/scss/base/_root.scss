@@ -1,0 +1,93 @@
+@use 'mixin' as *;
+@use 'variables' as *;
+
+:root {
+  --main-color: #{$main};
+  --negative-color: #{$negative};
+  --key-color: #{$key};
+  --key-hover-color: #{$key-hover};
+  --key-bg-color: #{$key-bg};
+  --key2-color: #{$key2};
+  --bg-color: #{$bg};
+  --bg2-color: #{$bg2};
+  --gray-color: #{$gray};
+  --link-color: #{$link};
+}
+
+[data-theme="dark"] {
+  --main-color: #{$dark-main};
+  --negative-color: #{$dark-negative};
+  --key-color: #{$dark-key};
+  --key-hover-color: #{$dark-key-hover};
+  --key-bg-color: #{$dark-key-bg};
+  --key2-color: #{$dark-key2};
+  --bg-color: #{$dark-bg};
+  --bg2-color: #{$dark-bg2};
+  --gray-color: #{$dark-gray};
+  --link-color: #{$dark-link};
+}
+
+html {
+  font-size: 14px;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+
+  @include media(sp) {
+    font-size: 14vw*$vw;
+  }
+}
+
+body {
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: 0.05em;
+  color: var(--main-color);
+  background-color: var(--bg-color);
+  &.hide {
+    overflow: hidden;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  @include media(sp) {
+    font-size: 14vw*$vw;
+  }
+}
+
+a {
+  color: var(--main-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+}
+
+
+:placeholder-shown {
+  color: #C4C4C4;
+}
+
+::-webkit-input-placeholder {
+  color: #C4C4C4;
+}
+
+[data-theme="dark"] {
+  :placeholder-shown {
+    color: #6A6A6A;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #6A6A6A;
+  }
+}

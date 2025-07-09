@@ -1,0 +1,331 @@
+@use "base" as *;
+
+.contents-download-header-wrapper {
+  background-color: var(--bg2-color);
+}
+
+// 固定ヘッダー
+.contents-download-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: torem(60);
+  border-bottom: torem(1) solid var(--gray-color);
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: torem(40);
+  padding-right: torem(40);
+
+  @include media(sp) {
+    padding-left: torem(20);
+    padding-right: torem(20);
+    height: torem(50);
+    border-bottom: 0;
+    background-color: var(--bg-color);
+  }
+
+  .prev-link {
+    width: torem(150);
+  }
+
+  &__title {
+    font-size: torem(16);
+    font-weight: 600;
+    color: var(--key-color);
+  }
+}
+
+// 下部ラッパー
+.contents-download-wrapper {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: torem(60); // ヘッダー分
+  padding-bottom: torem(40);
+  box-sizing: border-box;
+
+  @include media(sp) {
+    padding-top: torem(50);
+    padding-bottom: 0;
+    height: calc(100svh - torem(50));
+  }
+}
+
+// 内包コンテンツ
+.contents-download-inner {
+  width: 100%;
+  max-width: torem(730);
+  max-height: calc(100svh - torem(60) - torem(60));
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: torem(1) solid var(--key-color);
+
+  @include media(sp) {
+    max-height: calc(100svh - torem(50));
+    height: calc(100svh - torem(50));
+  }
+}
+
+// ツリー表示（固定）
+.contents-download-tree-title {
+  flex-shrink: 0;
+  @include fzrem(12);
+  font-weight: 600;
+  color: var(--main-color);
+  padding: torem(10) torem(15);
+  background: var(--key-hover-color);
+}
+
+// ツリー（スクロール）
+.contents-download-tree-content {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bg2-color);
+  padding: torem(5) torem(15);
+}
+
+// ツリー表示用のスタイル
+.contents-download-tree {
+  &__list {
+    position: relative;
+    line-height: 1.4;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .contents-download-tree__list {
+      padding-left: torem(10);
+
+      &:before {
+        content: '';
+        width: torem(1);
+        height: calc(100% - torem(20));
+        background-color: var(--key-color);
+        position: absolute;
+        left: 0;
+        top: torem(10);
+      }
+    }
+  }
+
+  &__item {
+    border-top: torem(0.25) solid var(--key-color);
+  }
+
+  // 最上位のulの最初の項目のみborder-top: 0
+  &__content>&__list>&__item:first-child {
+    border-top: 0;
+  }
+
+  // 子階層（ファイル）の最初の項目もborder-top: 0
+  &__list>&__item:first-child {
+    border-top: 0;
+  }
+
+  &__item-body {
+    display: flex;
+    align-items: center;
+    padding: torem(10) 0;
+    gap: torem(10);
+  }
+
+  &__check {
+    flex-shrink: 0;
+  }
+
+  &__label {
+    font-weight: 700;
+    @include fzrem(12);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: torem(6);
+  }
+
+  &__folder-icon {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: auto;
+    margin-top: torem(2);
+    flex-shrink: 0;
+    width: torem(13);
+    height: torem(13);
+
+    img {
+      width: 100%;
+      display: block;
+
+      @include dark {
+        filter: brightness(1.25);
+      }
+    }
+  }
+
+  &__filename {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__filesize {
+    @include fzrem(12);
+    font-weight: 600;
+    color: var(--main-color);
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  &__opener {
+    @include button-reset;
+    margin-left: auto;
+    flex-shrink: 0;
+    width: torem(14);
+    aspect-ratio: 1/1;
+    border: torem(1) solid var(--key-color);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: '';
+      height: torem(1);
+      width: 50%;
+      border-radius: torem(2);
+      background-color: var(--key-color);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+    }
+
+    .contents-download-tree__item-body.is-close & {
+      &:before {
+        rotate: 90deg;
+      }
+    }
+  }
+}
+
+// 下部ボタン（固定）
+.contents-download-buttons {
+  flex-shrink: 0;
+  background: var(--bg2-color);
+  padding: torem(15);
+  border-top: torem(1) solid var(--key-color);
+  display: flex;
+  gap: torem(8);
+  justify-content: center;
+  button{
+    @include media(spmin){
+      max-width:torem(150);
+    }
+  }
+
+  @include media(sp) {
+    gap: torem(6);
+  }
+}
+
+.download-btn,
+.clear-btn {
+  @include button-reset;
+  @include fzrem(12);
+  font-weight: 600;
+  padding: torem(8) torem(12);
+  border-radius: torem(4);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: torem(80);
+  flex: 1;
+  @include trahv;
+
+  @include media(sp) {
+    @include fzrem(10);
+  }
+}
+
+.download-btn {
+  background: var(--main-color);
+  color: #fff;
+
+  @include dark {
+    background: var(--bg2-color);
+    border: torem(1) solid #fff;
+  }
+
+  @include hoverLike {
+    opacity: 0.8;
+  }
+}
+
+.clear-btn {
+  background: var(--gray-color);
+  color: #fff;
+
+  @include hoverLike {
+    opacity: 0.8;
+  }
+}
+
+// SP版で目録詳細ボタンを下部に移動
+.contents-download-header {
+  .prev-link {
+    @include media(sp) {
+      display: none;
+    }
+  }
+}
+
+// SP版専用の目録詳細ボタン
+.contents-download-detail-btn {
+  @include button-reset;
+  @include fzrem(12);
+  font-weight: 600;
+  padding: torem(8) torem(12);
+  border-radius: torem(4);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: torem(4);
+  min-width: torem(80);
+  flex: 1;
+  background: var(--key-color);
+  color: #fff;
+  @include trahv;
+
+  @include hoverLike {
+    opacity: 0.8;
+  }
+
+  @include media(spmin) {
+    display: none;
+  }
+
+  @include media(sp) {
+    @include fzrem(10);
+  }
+
+  .prev-link__icon {
+    width: torem(10);
+    height: torem(10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+}

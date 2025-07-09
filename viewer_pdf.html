@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ビューアー(PDF)</title>
+  <link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+  <link rel="stylesheet" href="./bundles/web/css/viewer.css" type="text/css">
+</head>
+
+<body>
+  <div id="page-wrapper" class="page-wrapper">
+    <div class="viewer-header">
+      <!-- 1行目：薄冊標題 + 簿冊 + タイトル + IIIF + 目録詳細を開く(PC版) -->
+      <div class="viewer-header__row viewer-header__row--top">
+        <div class="viewer-header__section viewer-header__section--title">
+          <span class="viewer-header__label">薄冊標題</span>
+          <span class="cmn-category-label file">
+            <span class="cmn-category-label__icon">
+              <img src="./bundles/web/images/common/cat_icons/icon_file.svg" alt="" width="12" height="11"
+                loading="lazy">
+            </span>
+            <span class="cmn-category-label__text">簿冊</span>
+          </span>
+          <a href="#" class="viewer-header__title-link">鷹原内閣閣議書類（その３）昭和２１年１月４日～２月１５日</a>
+          <span class="viewer-header__section--iiif">
+            <img src="./bundles/web/images/viewer/icon_IIIF.webp" alt="IIIF" class="viewer-header__iiif-icon">
+          </span>
+        </div>
+        <div class="viewer-header__section viewer-header__section--detail viewer-header__section--detail-pc">
+          <a href="#" class="prev-link prev-link--center">
+            <span class="prev-link__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 7" aria-hidden="true" focusable="false">
+                <path
+                  d="M3.659 1.308a1 1 0 0 1 1.682 0l2.669 4.151A1 1 0 0 1 7.168 7H1.832a1 1 0 0 1-.842-1.541l2.669-4.151z"
+                  fill="#fff" transform="translate(9 7) rotate(180)" />
+              </svg>
+            </span>
+            <span>目録詳細を開く</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2行目：件名 -->
+      <div class="viewer-header__row viewer-header__row--subject">
+        <div class="viewer-header__subject-block">
+          <span class="viewer-header__label">件名</span>
+          <div class="viewer-header__subject-item">
+            <span class="viewer-header__subject-icon">
+              <img src="./bundles/web/images/common/icon_item.svg" alt="" width="12" height="11" loading="lazy">
+            </span>
+            <span class="viewer-header__subject-title">昭和21年度歳入歳出概算（大蔵省）</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3行目：目録詳細を開く(SP版) + URIコピー + SNS -->
+      <div class="viewer-header__row viewer-header__row--actions viewer-header__row--relative">
+        <div class="viewer-header__section viewer-header__section--detail viewer-header__section--detail-sp">
+          <a href="#" class="prev-link prev-link--center">
+            <span class="prev-link__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 7" aria-hidden="true" focusable="false">
+                <path
+                  d="M3.659 1.308a1 1 0 0 1 1.682 0l2.669 4.151A1 1 0 0 1 7.168 7H1.832a1 1 0 0 1-.842-1.541l2.669-4.151z"
+                  fill="#fff" transform="translate(9 7) rotate(180)" />
+              </svg>
+            </span>
+            <span>目録詳細を開く</span>
+          </a>
+        </div>
+        <div class="viewer-header__section viewer-header__section--actions-abs">
+          <button class="viewer-header__btn viewer-header__btn--copy js-uri-copy-btn">
+            <span class="viewer-header__btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.903 8.011">
+                <path
+                  d="M6.751,8.75a.738.738,0,0,1,.8-.731c.48,0,1.464-.011,1.464-.011S9,7.665,9,7.229a.787.787,0,0,1,.858-.734c.468,0,2.787.02,3.014.02a1.056,1.056,0,0,1,.667.278,6.966,6.966,0,0,1,.831.734c.191.216.271.342.271.52s0,3.772,0,4.188a.8.8,0,0,1-.841.73c-.454.006-1.43.006-1.43.006s.023.308.023.743a.84.84,0,0,1-.85.788c-.452.012-3.531-.024-3.969-.012a.8.8,0,0,1-.833-.757C6.738,13.311,6.751,9.161,6.751,8.75Zm.821.194L7.516,13.5a.194.194,0,0,0,.194.2l3.627.011a.19.19,0,0,0,.192-.2l-.011-.436a.1.1,0,0,0-.1-.1s-1.073.031-1.559.014a.777.777,0,0,1-.818-.761c0-.427,0-3.393,0-3.393a.1.1,0,0,0-.1-.1l-1.171,0a.2.2,0,0,0-.2.2ZM12.8,7.213c-.082-.071-.148-.041-.148.067v.847a.1.1,0,0,0,.1.1l1.024,0c.108,0,.13-.057.048-.128Zm-2.827.042a.1.1,0,0,0-.1.1l-.031,4.725a.146.146,0,0,0,.146.147l3.69-.009a.1.1,0,0,0,.1-.1l.062-3.063a.1.1,0,0,0-.1-.1l-1.511,0c-.226,0-.37-.109-.37-.318s0-1.274,0-1.274a.1.1,0,0,0-.1-.1L9.972,7.255Z"
+                  transform="translate(-6.738 -6.494)" fill="currentColor" />
+              </svg>
+            </span>
+            <span class="viewer-header__btn-text">URIをコピー</span>
+          </button>
+          <a href="#" class="viewer-header__sns-link">
+            <img src="./bundles/web/images/common/share_icons/x.svg" alt="X" width="28" height="28" loading="lazy"
+              class="viewer-header__sns-icon dark-invert-white">
+          </a>
+          <a href="#" class="viewer-header__sns-link">
+            <img src="./bundles/web/images/common/share_icons/facebook.svg" alt="Facebook" width="28" height="28"
+              loading="lazy" class="viewer-header__sns-icon">
+          </a>
+          <a href="#" class="viewer-header__sns-link">
+            <img src="./bundles/web/images/common/share_icons/line.svg" alt="LINE" width="28" height="28" loading="lazy"
+              class="viewer-header__sns-icon">
+          </a>
+          <a href="#" class="viewer-header__sns-link">
+            <img src="./bundles/web/images/common/share_icons/mail.svg" alt="Mail" width="28" height="28" loading="lazy"
+              class="viewer-header__sns-icon dark-invert-white">
+          </a>
+        </div>
+      </div>
+
+      <!-- 4行目：ナビゲーション -->
+      <div class="viewer-header__row viewer-header__row--nav">
+        <div class="viewer-header__nav">
+          <div class="viewer-header__nav-row viewer-header__nav-row--main">
+            <button class="viewer-header__nav-btn viewer-header__nav-btn--first">
+              <span class="viewer-header__pager-icon-wrapper">
+                <img src="./bundles/web/images/viewer/pager_icons/first.svg" alt="先頭" class="viewer-header__pager-icon">
+              </span>
+              先頭
+            </button>
+            <button class="viewer-header__nav-btn viewer-header__nav-btn--prev is-disabled">
+              <span class="viewer-header__pager-icon-wrapper">
+                <img src="./bundles/web/images/viewer/pager_icons/prev.svg" alt="前の件名"
+                  class="viewer-header__pager-icon">
+              </span>
+              前の件名
+            </button>
+            <span class="viewer-header__nav-title">No.XX<br><span class="viewer-header__nav-sub">全0000件中</span></span>
+            <button class="viewer-header__nav-btn viewer-header__nav-btn--next">
+              <span class="viewer-header__pager-icon-wrapper">
+                <img src="./bundles/web/images/viewer/pager_icons/next.svg" alt="次の件名"
+                  class="viewer-header__pager-icon">
+              </span>
+              次の件名
+            </button>
+            <button class="viewer-header__nav-btn viewer-header__nav-btn--last">
+              <span class="viewer-header__pager-icon-wrapper">
+                <img src="./bundles/web/images/viewer/pager_icons/last.svg" alt="末尾" class="viewer-header__pager-icon">
+              </span>
+              末尾
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main id="mainContent">
+      <div class="page-container">
+        <!-- ビュアー : セレクター -->
+        <nav class="p-viewer-select v-mode-pdf">
+          <a href="#" class="p-viewer-select__close" aria-label="このビューアーを閉じる">
+            <span class="p-viewer-select__close-icon">
+              <span></span><span></span>
+            </span>
+          </a>
+          <div class="p-viewer-select__wrapper">
+            <!-- 0. ツリー表示 -->
+            <button class="p-viewer-select__item" data-target="tree">
+              <div class="p-viewer-select__icon">
+                <img src="./bundles/web/images/viewer/nav_icons/tree.svg" alt="ツリー表示">
+              </div>
+              <span class="p-viewer-select__item-text">ツリー<br>表示</span>
+            </button>
+            <!-- 1. サムネイル -->
+            <button class="p-viewer-select__item" data-target="thumbnail">
+              <div class="p-viewer-select__icon">
+                <img src="./bundles/web/images/viewer/nav_icons/thumbnail.svg" alt="サムネイル">
+              </div>
+              <span class="p-viewer-select__item-text">サムネイル</span>
+            </button>
+            <!-- 2. 資料情報 -->
+            <button class="p-viewer-select__item" data-target="details">
+              <div class="p-viewer-select__icon">
+                <img src="./bundles/web/images/viewer/nav_icons/details.svg" alt="資料情報">
+              </div>
+              <span class="p-viewer-select__item-text">資料情報</span>
+            </button>
+            <!-- 3. 全画面 -->
+            <button class="p-viewer-select__item" data-target="fullscreen">
+              <div class="p-viewer-select__icon">
+                <img src="./bundles/web/images/viewer/nav_icons/fullscreen.svg" alt="全画面">
+              </div>
+              <span class="p-viewer-select__item-text">全画面</span>
+            </button>
+            <!-- 4. 印刷ダウンロード -->
+            <button class="p-viewer-select__item" data-target="printdl">
+              <div class="p-viewer-select__icon">
+                <img src="./bundles/web/images/viewer/nav_icons/print.svg" alt="印刷ダウンロード">
+              </div>
+              <span class="p-viewer-select__item-text">印刷<br>ダウンロード</span>
+            </button>
+            <!-- 5. (翻刻表示・概観図は PDF ビューアーでは非表示) -->
+          </div>
+        </nav>
+        <!-- / ビュアー : セレクター -->
+        <!-- ビュアー : コンテンツ -->
+        <!-- サムネイル一覧 -->
+        <div class="p-viewer-thumbnail">
+          <div class="p-viewer-thumbnail__header">
+            <h2 class="p-viewer-thumbnail__title">イメージ</h2>
+          </div>
+          <div class="p-viewer-thumbnail__content">
+            <div class="p-viewer-thumbnail__grid">
+              <!-- サムネイル1 -->
+              <button class="p-viewer-thumbnail__item is-current" data-page="1">
+                <span class="p-viewer-thumbnail__item-number">1</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb1.webp" alt="ページ1" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル2 -->
+              <button class="p-viewer-thumbnail__item" data-page="2">
+                <span class="p-viewer-thumbnail__item-number">2</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb2.webp" alt="ページ2" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル3 -->
+              <button class="p-viewer-thumbnail__item" data-page="3">
+                <span class="p-viewer-thumbnail__item-number">3</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb3.webp" alt="ページ3" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル4 -->
+              <button class="p-viewer-thumbnail__item" data-page="4">
+                <span class="p-viewer-thumbnail__item-number">4</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb4.webp" alt="ページ4" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル5 -->
+              <button class="p-viewer-thumbnail__item" data-page="5">
+                <span class="p-viewer-thumbnail__item-number">5</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb1.webp" alt="ページ5" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル6 -->
+              <button class="p-viewer-thumbnail__item" data-page="6">
+                <span class="p-viewer-thumbnail__item-number">6</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb2.webp" alt="ページ6" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル7 -->
+              <button class="p-viewer-thumbnail__item" data-page="7">
+                <span class="p-viewer-thumbnail__item-number">7</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb3.webp" alt="ページ7" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル8 -->
+              <button class="p-viewer-thumbnail__item" data-page="8">
+                <span class="p-viewer-thumbnail__item-number">8</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb4.webp" alt="ページ8" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル9 -->
+              <button class="p-viewer-thumbnail__item" data-page="9">
+                <span class="p-viewer-thumbnail__item-number">9</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb1.webp" alt="ページ9" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル10 -->
+              <button class="p-viewer-thumbnail__item" data-page="10">
+                <span class="p-viewer-thumbnail__item-number">10</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb2.webp" alt="ページ10" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル11 -->
+              <button class="p-viewer-thumbnail__item" data-page="11">
+                <span class="p-viewer-thumbnail__item-number">11</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb3.webp" alt="ページ11" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル12 -->
+              <button class="p-viewer-thumbnail__item" data-page="12">
+                <span class="p-viewer-thumbnail__item-number">12</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb4.webp" alt="ページ12" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル13 -->
+              <button class="p-viewer-thumbnail__item" data-page="13">
+                <span class="p-viewer-thumbnail__item-number">13</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb1.webp" alt="ページ13" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル14 -->
+              <button class="p-viewer-thumbnail__item" data-page="14">
+                <span class="p-viewer-thumbnail__item-number">14</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb2.webp" alt="ページ14" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル15 -->
+              <button class="p-viewer-thumbnail__item" data-page="15">
+                <span class="p-viewer-thumbnail__item-number">15</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb3.webp" alt="ページ15" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル16 -->
+              <button class="p-viewer-thumbnail__item" data-page="16">
+                <span class="p-viewer-thumbnail__item-number">16</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb4.webp" alt="ページ16" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル17 -->
+              <button class="p-viewer-thumbnail__item" data-page="17">
+                <span class="p-viewer-thumbnail__item-number">17</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb1.webp" alt="ページ17" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+              <!-- サムネイル18 -->
+              <button class="p-viewer-thumbnail__item" data-page="18">
+                <span class="p-viewer-thumbnail__item-number">18</span>
+                <div class="p-viewer-thumbnail__item-image-wrapper">
+                  <img src="./dummy_images/document_thumb2.webp" alt="ページ18" class="p-viewer-thumbnail__item-image">
+                  <span class="p-viewer-thumbnail__item-id">000XXXXXX000XX00<br>00XX000XX00000</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- / サムネイル一覧 -->
+        <!-- 資料情報 -->
+        <div class="p-viewer-detail">
+          <div class="p-viewer-detail__content">
+            <h2 class="p-viewer-detail__section-title">コンテンツ情報</h2>
+            <dl class="p-viewer-detail__list">
+              <dt class="p-viewer-detail__label">ファイル名</dt>
+              <dd class="p-viewer-detail__value">00000XXXXX000000.jp2</dd>
+              <dt class="p-viewer-detail__label">サイズ</dt>
+              <dd class="p-viewer-detail__value">38 MB</dd>
+              <dt class="p-viewer-detail__label">制作者</dt>
+              <dd class="p-viewer-detail__value">総務部</dd>
+            </dl>
+            <h2 class="p-viewer-detail__section-title">目録情報</h2>
+            <dl class="p-viewer-detail__list">
+              <dt class="p-viewer-detail__label">簿冊名</dt>
+              <dd class="p-viewer-detail__value">ダミーダミーダミーダミー</dd>
+              <dt class="p-viewer-detail__label">作成部局</dt>
+              <dd class="p-viewer-detail__value">総務部</dd>
+              <dt class="p-viewer-detail__label">所属部局</dt>
+              <dd class="p-viewer-detail__value">総務課</dd>
+              <dt class="p-viewer-detail__label">作成年月日</dt>
+              <dd class="p-viewer-detail__value">明治35（1902-01-01）</dd>
+              <dt class="p-viewer-detail__label">形態</dt>
+              <dd class="p-viewer-detail__value">ダミーダミーダミーダミー</dd>
+              <dt class="p-viewer-detail__label">URI</dt>
+              <dd class="p-viewer-detail__value">https://abcdefg</dd>
+            </dl>
+          </div>
+        </div>
+        <!-- / 資料情報 -->
+        <!-- イメージダウンロード -->
+        <div class="p-viewer-download">
+          <div class="p-viewer-download__header">
+            <h2 class="p-viewer-download__title">イメージダウンロード</h2>
+            <div class="p-viewer-download__header-info">
+              <span class="p-viewer-download__count">0/20枚 選択中</span>
+              <div class="p-viewer-download__format">
+                <label for="download-format">形式</label>
+                <div class="cmn-select-wrap">
+                  <select id="download-format" class="cmn-select-wrap__select">
+                    <option value="jpeg">JPEG</option>
+                    <option value="png">PNG</option>
+                    <option value="gif">GIF</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-viewer-download__content">
+            <div class="p-viewer-download__grid">
+              <!-- サムネイル1 -->
+              <div class="p-viewer-download__item" data-page="1">
+                <label for="download-item-1" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">1</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb1.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-1" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル2 -->
+              <div class="p-viewer-download__item" data-page="2">
+                <label for="download-item-2" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">2</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb2.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-2" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル3 -->
+              <div class="p-viewer-download__item" data-page="3">
+                <label for="download-item-3" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">3</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb3.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-3" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル4 -->
+              <div class="p-viewer-download__item" data-page="4">
+                <label for="download-item-4" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">4</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb4.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-4" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル5 -->
+              <div class="p-viewer-download__item" data-page="5">
+                <label for="download-item-5" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">5</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb1.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-5" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル6 -->
+              <div class="p-viewer-download__item" data-page="6">
+                <label for="download-item-6" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">6</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb2.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-6" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル7 -->
+              <div class="p-viewer-download__item" data-page="7">
+                <label for="download-item-7" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">7</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb3.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-7" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル8 -->
+              <div class="p-viewer-download__item" data-page="8">
+                <label for="download-item-8" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">8</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb4.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-8" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル9 -->
+              <div class="p-viewer-download__item" data-page="9">
+                <label for="download-item-9" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">9</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb1.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-9" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル10 -->
+              <div class="p-viewer-download__item" data-page="10">
+                <label for="download-item-10" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">10</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb2.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-10" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル11 -->
+              <div class="p-viewer-download__item" data-page="11">
+                <label for="download-item-11" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">11</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb3.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-11" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル12 -->
+              <div class="p-viewer-download__item" data-page="12">
+                <label for="download-item-12" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">12</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb4.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-12" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル13 -->
+              <div class="p-viewer-download__item" data-page="13">
+                <label for="download-item-13" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">13</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb1.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-13" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル14 -->
+              <div class="p-viewer-download__item" data-page="14">
+                <label for="download-item-14" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">14</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb2.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-14" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル15 -->
+              <div class="p-viewer-download__item" data-page="15">
+                <label for="download-item-15" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">15</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb3.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-15" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル16 -->
+              <div class="p-viewer-download__item" data-page="16">
+                <label for="download-item-16" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">16</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb4.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-16" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル17 -->
+              <div class="p-viewer-download__item" data-page="17">
+                <label for="download-item-17" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">17</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb1.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-17" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル18 -->
+              <div class="p-viewer-download__item" data-page="18">
+                <label for="download-item-18" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">18</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb2.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-18" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル19 -->
+              <div class="p-viewer-download__item" data-page="19">
+                <label for="download-item-19" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">19</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb3.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-19" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+              <!-- サムネイル20 -->
+              <div class="p-viewer-download__item" data-page="20">
+                <label for="download-item-20" class="p-viewer-download__label">
+                  <span class="p-viewer-download__number">20</span>
+                  <div class="p-viewer-download__image-wrapper">
+                    <img src="./dummy_images/document_thumb4.webp" alt="" class="p-viewer-download__image">
+                  </div>
+                  <div class="p-viewer-download__item-footer">
+                    <label class="p-viewer-download__check-icon cmn-check-icon">
+                      <input type="checkbox" id="download-item-20" class="p-viewer-download__checkbox">
+                      <span class="cmn-check-icon__icon">
+                        <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" />
+                      </span>
+                    </label>
+                    <span class="p-viewer-download__filename">0000XXXX0000XX0000XX0000XX0000</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="p-viewer-download__footer">
+            <div class="p-viewer-download__page-input">
+              <input type="number" class="cmn-input" placeholder="ページ入力" min="1">
+              <span>～</span>
+              <input type="number" class="cmn-input" placeholder="ページ入力" min="1">
+              <button class="cmn-button cmn-button--bk">選択</button>
+            </div>
+            <div class="p-viewer-download__actions">
+              <button class="p-viewer-download__btn p-viewer-download__btn--download">ダウンロード</button>
+              <button class="p-viewer-download__btn p-viewer-download__btn--print">印刷</button>
+              <button class="p-viewer-download__btn p-viewer-download__btn--clear">クリア</button>
+            </div>
+          </div>
+        </div>
+        <!-- / イメージダウンロード -->
+        <!-- ツリー表示パネル -->
+        <div class="p-viewer-tree">
+          <div class="p-viewer-tree__header">
+            <button class="p-viewer-tree__title">ツリー表示拡大</button>
+          </div>
+          <div class="p-viewer-tree__content">
+            <ul class="sidebar-tree__list">
+              <!-- 最上位階層 -->
+              <li class="sidebar-tree__item">
+                <span class="sidebar-tree__item-body">
+                  <span class="sidebar-tree__folder-icon">
+                    <img src="./bundles/web/images/common/icon_fonds.svg" alt="フォルダ" width="12" height="11" loading="lazy">
+                  </span>
+                  <span class="sidebar-tree__label">
+                    <a href="#">「サイバーセキュリティ基本法に基づく包括的な協力に関する取決め」に関する協力内容の細目の変更と秘密保持契約について（何い）</a>
+                  </span>
+                </span>
+                
+                <ul class="sidebar-tree__list">
+                  <!-- 第2階層 -->
+                  <li class="sidebar-tree__item">
+                    <span class="sidebar-tree__item-body">
+                      <span class="sidebar-tree__folder-icon">
+                        <img src="./bundles/web/images/common/icon_fonds.svg" alt="フォルダ" width="12" height="11" loading="lazy">
+                      </span>
+                      <span class="sidebar-tree__label">
+                        <a href="#">何い内容の詳細</a>
+                      </span>
+                    </span>
+                    
+                    <ul class="sidebar-tree__list">
+                      <!-- PDFファイル -->
+                      <li class="sidebar-tree__item">
+                        <span class="sidebar-tree__item-body">
+                          <label class="sidebar-tree__check cmn-check-icon">
+                            <input type="checkbox" class="sidebar-tree__check-input">
+                            <span class="cmn-check-icon__icon">
+                              <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" width="8" height="7" loading="lazy">
+                            </span>
+                          </label>
+                                                     <span class="sidebar-tree__label">
+                             <a href="#">別添「サイバーセキュリティ基本法に基づく包括的な協力に関する取決め」に関する協力内容の細目の変更と秘密保持契約について（案）.pdf（一般提供用フォーマット）</a>
+                             <img src="./bundles/web/images/common/icon_pdf.svg" alt="PDF" width="12" height="11" loading="lazy" class="sidebar-tree__pdf-icon">
+                           </span>
+                        </span>
+                      </li>
+                      
+                      <!-- Excelファイル -->
+                      <li class="sidebar-tree__item">
+                        <span class="sidebar-tree__item-body">
+                          <label class="sidebar-tree__check cmn-check-icon">
+                            <input type="checkbox" class="sidebar-tree__check-input">
+                            <span class="cmn-check-icon__icon">
+                              <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" width="8" height="7" loading="lazy">
+                            </span>
+                          </label>
+                          <span class="sidebar-tree__label">
+                            <a href="#">XXXXX.xlsx</a>
+                          </span>
+                        </span>
+                      </li>
+                      
+                      <!-- PowerPointファイル -->
+                      <li class="sidebar-tree__item">
+                        <span class="sidebar-tree__item-body">
+                          <label class="sidebar-tree__check cmn-check-icon">
+                            <input type="checkbox" class="sidebar-tree__check-input">
+                            <span class="cmn-check-icon__icon">
+                              <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" width="8" height="7" loading="lazy">
+                            </span>
+                          </label>
+                          <span class="sidebar-tree__label">
+                            <a href="#">XXXXX.ppt</a>
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                  
+                  <!-- 別添（電子）フォルダ -->
+                  <li class="sidebar-tree__item">
+                    <span class="sidebar-tree__item-body">
+                      <span class="sidebar-tree__folder-icon">
+                        <img src="./bundles/web/images/common/icon_fonds.svg" alt="フォルダ" width="12" height="11" loading="lazy">
+                      </span>
+                      <span class="sidebar-tree__label">
+                        <a href="#">別添（電子）</a>
+                      </span>
+                    </span>
+                    
+                    <ul class="sidebar-tree__list">
+                      <!-- PDFファイル -->
+                      <li class="sidebar-tree__item">
+                        <span class="sidebar-tree__item-body">
+                          <label class="sidebar-tree__check cmn-check-icon">
+                            <input type="checkbox" class="sidebar-tree__check-input">
+                            <span class="cmn-check-icon__icon">
+                              <img src="./bundles/web/images/common/icon_check.svg" alt="チェック" width="8" height="7" loading="lazy">
+                            </span>
+                          </label>
+                                                     <span class="sidebar-tree__label">
+                             <a href="#">起案用紙.pdf（一般提供用フォーマット）</a>
+                             <img src="./bundles/web/images/common/icon_pdf.svg" alt="PDF" width="12" height="11" loading="lazy" class="sidebar-tree__pdf-icon">
+                           </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="p-viewer-tree__footer">
+            <div class="p-viewer-tree__actions">
+              <button class="p-viewer-tree__btn p-viewer-tree__btn--download">ダウンロード</button>
+              <button class="p-viewer-tree__btn p-viewer-tree__btn--clear">クリア</button>
+            </div>
+          </div>
+        </div>
+        <!-- / ツリー表示パネル -->
+        <!-- フルスクリーン閉じるボタン -->
+        <button class="p-viewer-fullscreen-close" aria-label="フルスクリーンを終了">
+          <span class="p-viewer-fullscreen-close__icon"></span>
+          <span class="p-viewer-fullscreen-close__text">閉じる</span>
+        </button>
+        <!-- / フルスクリーン閉じるボタン -->
+
+        <!-- ビュアー : コンテンツ -->
+        <div class="page-viewer-content">
+          <div class="p-viewer-content">
+            <!-- 矢印ボタン -->
+            <button class="p-viewer-arrow p-viewer-arrow--prev" aria-label="前のページ">
+              <span class="p-viewer-arrow__icon">
+                <img src="./bundles/web/images/common/icon_arrow.svg" alt="前のページ">
+              </span>
+            </button>
+            <button class="p-viewer-arrow p-viewer-arrow--next" aria-label="次のページ">
+              <span class="p-viewer-arrow__icon">
+                <img src="./bundles/web/images/common/icon_arrow.svg" alt="次のページ">
+              </span>
+            </button>
+            <!-- / 矢印ボタン -->
+
+            <div class="pdf-wrapper" style="width:100%;height:100%;"></div>
+          </div>
+        </div>
+        <!-- / ビュアー : コンテンツ -->
+      </div>
+    </main>
+  </div>
+  <script src="./bundles/web/js/jQuery.js"></script>
+  <script src="./bundles/web/js/cookieConsent.js"></script>
+  <script src="./bundles/web/js/swiper-bundle.min.js"></script>
+  <script src="./bundles/web/js/common.js"></script>
+  <script src="./bundles/web/js/viewer.js"></script>
+</body>
+
+</html>

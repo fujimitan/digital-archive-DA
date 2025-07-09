@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DA詳細検索</title>
+	<link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+	<link rel="stylesheet" href="./bundles/web/css/archive-finder.css" type="text/css">
+</head>
+
+<body>
+	<div id="page-wrapper" class="page-wrapper">
+		<!-- header -->
+		<header id="commonHeader" class="commonHeader"></header>
+		<!-- 構築テスト用include -->
+		<script type="module">
+			fetch('./includes/header.html')
+				.then(r => r.text())
+				.then(html => {
+					const range = document.createRange();
+					const fragment = range.createContextualFragment(html);
+					const header = fragment.querySelector('header#commonHeader');
+					if (header) {
+						const target = document.getElementById('commonHeader');
+						if (target) target.replaceWith(header);
+					}
+				});
+		</script>
+		<!-- //構築テスト用include -->
+		<!-- //header -->
+
+		<main id="mainContent" class="mainContent mainContent--has-sidebar">
+			<!-- content -->
+
+			<div class="has-sidebar-layout">
+
+				<section class="has-sidebar-layout__main">
+					<div class="has-sidebar-layout__main-container pt-30">
+
+						<ol class="bread-crumb mb-30 mb-50-sp">
+							<li class="bread-crumb__item">
+								<a href="#">トップ</a>
+							</li>
+							<li class="bread-crumb__item">
+								<span class="current" aria-current="page">詳細検索［所蔵資料］</span>
+							</li>
+						</ol>
+
+						<div class="search-form-header mb-40">
+							<h2 class="search-form-heading">
+								<span class="search-form-heading__icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.686 19.688">
+										<path id="Icon_box-search-alt-2" data-name="Icon box-search-alt-2"
+											d="M20.582,18.469q-.726-.7-1.412-1.429c-.384-.39-.616-.674-.616-.674l-2.892-1.381a7.241,7.241,0,1,0-.679.68l1.381,2.892s.284.231.674.616.925.882,1.429,1.412l1.4,1.438.624.667L22.686,20.5l-.667-.624C21.628,19.49,21.1,18.979,20.582,18.469ZM10.23,15.394a5.164,5.164,0,1,1,5.164-5.164A5.17,5.17,0,0,1,10.23,15.394Z"
+											transform="translate(-3 -3)" fill="currentColor" />
+									</svg>
+								</span>
+								<span class="search-form-heading__ttl">
+									詳細検索
+								</span>
+								<span class="search-form-heading__sub-ttl">
+									［所蔵資料］
+								</span>
+							</h2>
+							<p class="search-form-description">
+								キーワードを入力して<br class="br-sp">「検索」ボタンをクリックしてください。
+							</p>
+						</div>
+
+						<nav class="search-form-tabs">
+							<span class="search-form-tabs__item is-current">
+								<span>所蔵資料検索</span>
+							</span>
+							<a href="#" class="search-form-tabs__item">
+								<span>他機関との横断検索</span>
+							</a>
+						</nav>
+
+            <form class="archive-finder-form">
+							<dl class="archive-finder-form-container">
+								<div class="archive-finder-form-container__row items-start">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">キーワード</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__keyword-wrap">
+											<div class="archive-finder-form-container__keyword-item">
+												<div class="archive-finder-form-container__keyword-logic">
+													<div class="cmn-select-wrap">
+														<select class="cmn-select-wrap__select" name="logic-0">
+															<option value=""></option>
+															<option value="NOT">NOT</option>
+														</select>
+													</div>
+												</div>
+												<div class="archive-finder-form-container__keyword-scope">
+													<div class="cmn-select-wrap">
+														<select class="cmn-select-wrap__select" name="scope-0">
+															<option value="すべて">すべて</option>
+															<option value="タイトル">タイトル</option>
+															<option value="作成・取得機関">作成・取得機関</option>
+															<option value="関連事項">関連事項</option>
+															<option value="番号・ID">番号・ID</option>
+														</select>
+													</div>
+												</div>
+												<div class="archive-finder-form-container__keyword-word" name="keyword-0">
+													<input type="text" class="cmn-input" placeholder="キーワードを入力してください">
+												</div>
+											</div>
+										</div>
+
+										<button class="archive-finder-form-container__keyword-bt" type="button">
+											<span class="icon"></span>
+											<span>検索エリアを追加</span>
+										</button>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">資料群</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__tree">
+											<div class="archive-finder-form-container__tree-placeholder">
+												<p class="archive-finder-form-container__tree-placeholder-caption">
+													資料群を絞り込む場合は左記の資料群階層から選択してください
+												</p>
+											</div>
+											<ul class="archive-finder-form-container__tree-list">
+											</ul>
+											<button class="archive-finder-form-container__tree-sp-bt" type="button">
+												<span class="icon"></span>
+												<span>資料群階層を選択</span>
+											</button>
+										</div>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">目録種別</span>
+										</span>
+										<div class="archive-finder-form-container__check-all-wrap">
+											<button type="button" class="archive-finder-form-container__check-all"></button>
+										</div>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<ul class="archive-finder-form-container__check-list">
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">資料群</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">簿冊</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">件名・細目</span>
+												</label>
+											</li>
+										</ul>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">コンテンツ種別</span>
+										</span>
+										<div class="archive-finder-form-container__check-all-wrap">
+											<button type="button" class="archive-finder-form-container__check-all"></button>
+										</div>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<ul class="archive-finder-form-container__check-list">
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">画像</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">動画・音声</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">電子公文書</span>
+												</label>
+											</li>
+										</ul>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">検索結果表示数</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__wrap-s">
+											<div class="cmn-select-wrap">
+												<select class="cmn-select-wrap__select">
+													<option value="20">20件</option>
+													<option value="50">50件</option>
+													<option value="100" selected>100件</option>
+													<option value="200">200件</option>
+												</select>
+											</div>
+										</div>
+									</dd>
+								</div>
+
+							</dl>
+
+							<button type="button" class="archive-finder-search-filters-bt is-close">
+								<span class="archive-finder-search-filters-bt__icon"></span>
+								<span class="archive-finder-search-filters-bt__text">検索条件を追加</span>
+							</button>
+
+							<dl class="archive-finder-form-container">
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">利用制限の区分</span>
+											<span class="archive-finder-form-container__tool-tip">
+												<span class="tool-tip-icon">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-label="HELP">
+														<path
+															d="M7.25,2.25a5,5,0,1,0,5,5A5,5,0,0,0,7.25,2.25Zm0,7.9A.446.446,0,1,1,7.7,9.705.446.446,0,0,1,7.25,10.152Zm.7-2.45a.539.539,0,0,0-.345.5v.253a.09.09,0,0,1-.089.089H6.982a.09.09,0,0,1-.089-.089v-.24a1.269,1.269,0,0,1,.222-.724A1.247,1.247,0,0,1,7.7,7.035a.9.9,0,0,0,.625-.811A1,1,0,0,0,7.25,5.33a1,1,0,0,0-1.071.893v.085a.09.09,0,0,1-.089.089H5.554a.09.09,0,0,1-.089-.089V6.223A1.521,1.521,0,0,1,6,5.07a1.935,1.935,0,0,1,2.491,0,1.521,1.521,0,0,1,.54,1.153A1.611,1.611,0,0,1,7.952,7.7Z"
+															transform="translate(-2.25 -2.25)" fill="currentColor" />
+													</svg>
+												</span>
+												<span class="tool-tip-body">
+													<span>
+														ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+													</span>
+												</span>
+											</span>
+										</span>
+										<div class="archive-finder-form-container__check-all-wrap">
+											<button type="button" class="archive-finder-form-container__check-all"></button>
+										</div>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<ul class="archive-finder-form-container__check-list">
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">公開</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">部分公開</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">要審査</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">非公開</span>
+												</label>
+											</li>
+										</ul>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">保存場所</span>
+											<span class="archive-finder-form-container__tool-tip">
+												<span class="tool-tip-icon">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-label="HELP">
+														<path
+															d="M7.25,2.25a5,5,0,1,0,5,5A5,5,0,0,0,7.25,2.25Zm0,7.9A.446.446,0,1,1,7.7,9.705.446.446,0,0,1,7.25,10.152Zm.7-2.45a.539.539,0,0,0-.345.5v.253a.09.09,0,0,1-.089.089H6.982a.09.09,0,0,1-.089-.089v-.24a1.269,1.269,0,0,1,.222-.724A1.247,1.247,0,0,1,7.7,7.035a.9.9,0,0,0,.625-.811A1,1,0,0,0,7.25,5.33a1,1,0,0,0-1.071.893v.085a.09.09,0,0,1-.089.089H5.554a.09.09,0,0,1-.089-.089V6.223A1.521,1.521,0,0,1,6,5.07a1.935,1.935,0,0,1,2.491,0,1.521,1.521,0,0,1,.54,1.153A1.611,1.611,0,0,1,7.952,7.7Z"
+															transform="translate(-2.25 -2.25)" fill="currentColor" />
+													</svg>
+												</span>
+												<span class="tool-tip-body">
+													<span>
+														ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+													</span>
+												</span>
+											</span>
+										</span>
+										<div class="archive-finder-form-container__check-all-wrap">
+											<button type="button" class="archive-finder-form-container__check-all"></button>
+										</div>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<ul class="archive-finder-form-container__check-list">
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">本館</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">分館</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">電子公文書等システム</span>
+												</label>
+											</li>
+											<li>
+												<label class="archive-finder-form-container__check-list-item cmn-check-item">
+													<span class="cmn-check-item__icon cmn-check-icon">
+														<input type="checkbox">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</span>
+													<span class="cmn-check-item__text">外部書庫</span>
+												</label>
+											</li>
+										</ul>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">年月日</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__date-range-wrap">
+											<div class="archive-finder-form-container__date-range">
+												<div class="archive-finder-form-container__date-object">
+													<div class="archive-finder-form-container__date-type">
+														<div class="cmn-select-wrap">
+															<select class="cmn-select-wrap__select">
+																<option value="">西暦</option>
+																<option value="">明治</option>
+																<option value="">大正</option>
+																<option value="">昭和</option>
+															</select>
+														</div>
+													</div>
+													<div class="archive-finder-form-container__date-year">
+														<input type="number" class="cmn-input" min="0">
+														<span class="archive-finder-form-container__date-unit">
+															年
+														</span>
+													</div>
+													<div class="archive-finder-form-container__date-month">
+														<input type="number" class="cmn-input" min="1" max="12">
+														<span class="archive-finder-form-container__date-unit">
+															月
+														</span>
+													</div>
+													<div class="archive-finder-form-container__date-day">
+														<input type="number" class="cmn-input" min="1" max="31">
+														<span class="archive-finder-form-container__date-unit">
+															日
+														</span>
+													</div>
+												</div>
+												<span class="archive-finder-form-container__date-separator">〜</span>
+												<div class="archive-finder-form-container__date-object">
+													<div class="archive-finder-form-container__date-type">
+														<div class="cmn-select-wrap">
+															<select class="cmn-select-wrap__select">
+																<option value="">西暦</option>
+																<option value="">明治</option>
+																<option value="">大正</option>
+																<option value="">昭和</option>
+															</select>
+														</div>
+													</div>
+													<div class="archive-finder-form-container__date-year">
+														<input type="number" class="cmn-input" min="0">
+														<span class="archive-finder-form-container__date-unit">
+															年
+														</span>
+													</div>
+													<div class="archive-finder-form-container__date-month">
+														<input type="number" class="cmn-input" min="1" max="12">
+														<span class="archive-finder-form-container__date-unit">
+															月
+														</span>
+													</div>
+													<div class="archive-finder-form-container__date-day">
+														<input type="number" class="cmn-input" min="1" max="31">
+														<span class="archive-finder-form-container__date-unit">
+															日
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</dd>
+								</div>
+								<div class="archive-finder-form-container__row no-pt">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">年月日（元号）</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__date-range-wrap">
+											<div class="archive-finder-form-container__date-range">
+												<div class="archive-finder-form-container__date-object">
+													<div class="archive-finder-form-container__date-type">
+														<div class="archive-finder-form-container__date-gengo" data-gengo="from">
+															<input type="hidden">
+															<button type="button" class="archive-finder-form-container__date-gengo-bt cmn-button">
+																<span class="archive-finder-form-container__date-gengo-bt__text">
+																	元号選択
+																</span>
+															</button>
+														</div>
+													</div>
+													<div class="archive-finder-form-container__date-year">
+														<input type="number" class="cmn-input" min="0">
+														<span class="archive-finder-form-container__date-unit">
+															年
+														</span>
+													</div>
+													<div class="archive-finder-form-container__date-month">
+														<input type="number" class="cmn-input" min="1" max="12">
+														<span class="archive-finder-form-container__date-unit">
+															月
+														</span>
+													</div>
+													<div class="archive-finder-form-container__date-day">
+														<input type="number" class="cmn-input" min="1" max="31">
+														<span class="archive-finder-form-container__date-unit">
+															日
+														</span>
+													</div>
+												</div>
+												<span class="archive-finder-form-container__date-separator">〜</span>
+												<div class="archive-finder-form-container__date-object">
+													<div class="archive-finder-form-container__date-type">
+														<div class="archive-finder-form-container__date-gengo" data-gengo="to">
+															<input type="hidden">
+															<button type="button" class="archive-finder-form-container__date-gengo-bt cmn-button">
+																<span class="archive-finder-form-container__date-gengo-bt__text">
+																	元号選択
+																</span>
+															</button>
+														</div>
+													</div>
+													<div class="archive-finder-form-container__date-year">
+														<input type="number" class="cmn-input" min="0">
+														<span class="archive-finder-form-container__date-unit">
+															年
+														</span>
+													</div>
+													<div class="archive-finder-form-container__date-month">
+														<input type="number" class="cmn-input" min="1" max="12">
+														<span class="archive-finder-form-container__date-unit">
+															月
+														</span>
+													</div>
+													<div class="archive-finder-form-container__date-day">
+														<input type="number" class="cmn-input" min="1" max="31">
+														<span class="archive-finder-form-container__date-unit">
+															日
+														</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row items-start">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">請求番号</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__request-number-wrap">
+											<div class="archive-finder-form-container__request-number">
+												<div class="archive-finder-form-container__request-number-item">
+													<input type="text" class="cmn-input">
+												</div>
+												<span class="archive-finder-form-container__request-number-separator">
+													〜
+												</span>
+												<div class="archive-finder-form-container__request-number-item">
+													<input type="text" class="cmn-input">
+												</div>
+											</div>
+										</div>
+										<div class="archive-finder-form-container__request-number-caption">
+											<span class="heading">（例）</span>
+											<dl class="list">
+												<div class="list__row">
+													<dt>行政文書の場合：</dt>
+													<dd>平15財務00219100 〜 <br class="br-sp">平15財務00247100</dd>
+												</div>
+												<div class="list__row">
+													<dt>内閣文庫の場合：</dt>
+													<dd>170-0001 ~ 170-0011 <br class="br-sp">※ハイフンも入れてください。</dd>
+												</div>
+											</dl>
+										</div>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">移管元機関等</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__wrap-m">
+											<div class="cmn-select-wrap">
+												<select class="cmn-select-wrap__select">
+													<option value=""></option>
+													<option value=""></option>
+													<option value=""></option>
+													<option value=""></option>
+												</select>
+											</div>
+										</div>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">内閣文庫旧蔵者​</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__wrap-m">
+											<div class="cmn-select-wrap">
+												<select class="cmn-select-wrap__select">
+													<option value=""></option>
+													<option value=""></option>
+													<option value=""></option>
+													<option value=""></option>
+												</select>
+											</div>
+										</div>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">電子公文書</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__wrap-s archive-finder-form-container__wrap-s--sp-s">
+											<label class="cmn-check-item">
+												<span class="cmn-check-item__icon cmn-check-icon">
+													<input type="checkbox">
+													<span class="cmn-check-icon__icon">
+														<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+															loading="lazy">
+													</span>
+												</span>
+												<span class="cmn-check-item__text">電子公文書のみ検索する</span>
+											</label>
+										</div>
+									</dd>
+								</div>
+
+								<div class="archive-finder-form-container__row">
+									<dt class="archive-finder-form-container__label-wrap">
+										<span class="archive-finder-form-container__label">
+											<span class="text">本文検索</span>
+											<span class="archive-finder-form-container__tool-tip">
+												<span class="tool-tip-icon">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-label="HELP">
+														<path
+															d="M7.25,2.25a5,5,0,1,0,5,5A5,5,0,0,0,7.25,2.25Zm0,7.9A.446.446,0,1,1,7.7,9.705.446.446,0,0,1,7.25,10.152Zm.7-2.45a.539.539,0,0,0-.345.5v.253a.09.09,0,0,1-.089.089H6.982a.09.09,0,0,1-.089-.089v-.24a1.269,1.269,0,0,1,.222-.724A1.247,1.247,0,0,1,7.7,7.035a.9.9,0,0,0,.625-.811A1,1,0,0,0,7.25,5.33a1,1,0,0,0-1.071.893v.085a.09.09,0,0,1-.089.089H5.554a.09.09,0,0,1-.089-.089V6.223A1.521,1.521,0,0,1,6,5.07a1.935,1.935,0,0,1,2.491,0,1.521,1.521,0,0,1,.54,1.153A1.611,1.611,0,0,1,7.952,7.7Z"
+															transform="translate(-2.25 -2.25)" fill="currentColor" />
+													</svg>
+												</span>
+												<span class="tool-tip-body">
+													<span>
+														ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー
+													</span>
+												</span>
+											</span>
+										</span>
+									</dt>
+									<dd class="archive-finder-form-container__content-wrap">
+										<div class="archive-finder-form-container__wrap-s archive-finder-form-container__wrap-s--sp-s">
+											<label class="cmn-check-item">
+												<span class="cmn-check-item__icon cmn-check-icon">
+													<input type="checkbox">
+													<span class="cmn-check-icon__icon">
+														<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+															loading="lazy">
+													</span>
+												</span>
+												<span class="cmn-check-item__text">本文検索を行う</span>
+											</label>
+										</div>
+									</dd>
+								</div>
+
+							</dl>
+
+              <div class="form-submit-wrapper mt-60 mt-30-sp">
+								<button type="submit" class="form-submit">
+									<span class="form-submit__icon">
+										<img src="./bundles/web/images/common/icon_search.svg" alt="" width="17" height="17" loading="lazy">
+									</span>
+									<span class="form-submit__text">検索</span>
+								</button>
+								<button type="reset" class="form-reset">
+									<span class="form-reset__text">入力をクリア</span>
+								</button>
+							</div>
+
+						</form>
+
+					</div>
+				</section>
+
+				<aside class="has-sidebar-layout__sidebar">
+					<button class="has-sidebar-layout__sidebar-toggle" type="button" aria-label="サイドバーを開閉">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.15 7.34">
+							<path id="b"
+								d="M.46,4.51C0,4.21-.14,3.59.16,3.13c.08-.12.18-.22.3-.3L4.61.16c.46-.3,1.08-.16,1.38.3.1.16.16.35.16.54v5.34c0,.55-.45,1-1,1-.19,0-.38-.06-.54-.16L.46,4.51Z"
+								fill="currentColor" />
+						</svg>
+					</button>
+					<button class="has-sidebar-layout__sidebar-sp-close">閉じる</button>
+
+					<div class="has-sidebar-layout__sidebar-container">
+						<section id="sidebar-tree" class="sidebar-tree">
+							<h2 class="sidebar-tree__heading">
+								<span class="sidebar-tree__heading-icon">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.63 19.13">
+										<path
+											d="M18.62,13.6h-.26v-2.53c0-1.11-.9-2.01-2.01-2.01h-5.54v-3.53h.26,0c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-1.51c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h.25v3.53h-4.45s-1.09,0-1.09,0c-1.11,0-2.01.9-2.01,2.01v2.52h-.25c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-.26v-2.52c0-.27.11-.51.28-.69.02-.02.04-.03.06-.05.07-.06.15-.11.23-.16.03-.01.05-.03.08-.04.11-.04.23-.07.36-.07h5.54v3.53h-.26c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01h-.26v-3.53h5.54c.56,0,1.01.45,1.01,1.01v2.53h-.25c-1.11,0-2.01.9-2.01,2.01v1.51c0,1.11.9,2.01,2.01,2.01h1.51c1.11,0,2.01-.9,2.01-2.01v-1.51c0-1.11-.9-2.01-2.01-2.01ZM3.52,14.59c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51ZM11.07,14.59c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51ZM9.56,4.53c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51c.56,0,1.01.45,1.01,1.01v1.51c0,.56-.45,1.01-1.01,1.01h-1.51ZM19.63,17.12c0,.56-.45,1.01-1.01,1.01h-1.51c-.56,0-1.01-.45-1.01-1.01v-1.51c0-.56.45-1.01,1.01-1.01h1.51c.56,0,1.01.45,1.01,1.01v1.51Z"
+											style="fill:currentColor" />
+									</svg>
+								</span>
+								<span class="sidebar-tree__heading-text">資料群階層</span>
+							</h2>
+							<div class="sidebar-tree__content">
+								<ul class="sidebar-tree__list">
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="行政文書">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">行政文書</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="司法文書">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">司法文書</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">司法行政文書</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">最高裁判所事務総局</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">新規公表（令和5年度）</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="法人文書">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">法人文書</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="寄贈・寄託文書">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">寄贈・寄託文書</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="内閣文庫">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">内閣文庫</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+									<li class="sidebar-tree__item">
+
+										<span class="sidebar-tree__item-body is-close" data-tree-value="官報">
+											<label class="sidebar-tree__check cmn-check-icon">
+												<input type="checkbox" class="sidebar-tree__check-input">
+												<span class="cmn-check-icon__icon">
+													<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+														loading="lazy">
+												</span>
+											</label>
+											<span class="sidebar-tree__label">
+												<a href="#">官報</a>
+											</span>
+											<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+											</button>
+										</span>
+
+										<ul class="sidebar-tree__list">
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+													<button class="sidebar-tree__opener" type="button" aria-label="子要素を開閉">
+													</button>
+												</span>
+
+												<ul class="sidebar-tree__list">
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+													<li class="sidebar-tree__item">
+
+														<span class="sidebar-tree__item-body" data-tree-value="検索クエリ">
+															<label class="sidebar-tree__check cmn-check-icon">
+																<input type="checkbox" class="sidebar-tree__check-input">
+																<span class="cmn-check-icon__icon">
+																	<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																		loading="lazy">
+																</span>
+															</label>
+															<span class="sidebar-tree__label">
+																<a href="#">孫要素孫要素</a>
+															</span>
+														</span>
+
+													</li>
+													<!--  -->
+
+												</ul>
+											</li>
+											<!--  -->
+											<li class="sidebar-tree__item">
+
+												<span class="sidebar-tree__item-body is-close" data-tree-value="検索クエリ">
+													<label class="sidebar-tree__check cmn-check-icon">
+														<input type="checkbox" class="sidebar-tree__check-input">
+														<span class="cmn-check-icon__icon">
+															<img src="./bundles/web/images/common/icon_check.svg" alt="" width="8" height="7"
+																loading="lazy">
+														</span>
+													</label>
+													<span class="sidebar-tree__label">
+														<a href="#">子要素子要素</a>
+													</span>
+												</span>
+
+											</li>
+											<!--  -->
+
+										</ul>
+									</li>
+									<!--  -->
+								</ul>
+							</div>
+						</section>
+					</div>
+				</aside>
+
+			</div>
+
+			<!-- gengo-modal -->
+			<div id="gengo-modal" class="gengo-modal is-hidden">
+				<div class="gengo-modal__overlay">
+					<div class="gengo-modal__content">
+						<span class="gengo-modal__heading">元号選択</span>
+						<nav class="gengo-modal__tabs">
+							<button type="button" class="gengo-modal__tab is-current" data-gengo-type-target="wa">
+								<span>和暦元号</span>
+							</button>
+							<button type="button" class="gengo-modal__tab" data-gengo-type-target="chu">
+								<span>中国元号</span>
+							</button>
+							<button type="button" class="gengo-modal__tab" data-gengo-type-target="cho">
+								<span>朝鮮元号</span>
+							</button>
+						</nav>
+
+						<div class="gengo-modal__item is-current" data-gengo-type="wa">
+							<div class="gengo-modal__table-wrap">
+								<table class="gengo-modal__table">
+									<thead>
+										<tr>
+											<th class="gengo-modal__th">元号名称</th>
+											<th class="gengo-modal__th">開始西暦年</th>
+											<th class="gengo-modal__th"> </th>
+										</tr>
+									</thead>
+								</table>
+								<div class="gengo-modal__tbody-wrap">
+									<table class="gengo-modal__table">
+										<tbody class="gengo-modal__tbody">
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">令和</td>
+												<td class="gengo-modal__td">2019</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="令和">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">平成</td>
+												<td class="gengo-modal__td">1989</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="平成">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">昭和</td>
+												<td class="gengo-modal__td">1926</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="昭和">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">大正</td>
+												<td class="gengo-modal__td">1912</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="大正">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">明治</td>
+												<td class="gengo-modal__td">1868</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="明治">選択</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="gengo-modal__item" data-gengo-type="chu">
+							<div class="gengo-modal__table-wrap">
+								<table class="gengo-modal__table">
+									<thead>
+										<tr>
+											<th class="gengo-modal__th">元号名称</th>
+											<th class="gengo-modal__th">開始西暦年</th>
+											<th class="gengo-modal__th"> </th>
+										</tr>
+									</thead>
+								</table>
+
+								<div class="gengo-modal__tbody-wrap">
+									<table class="gengo-modal__table">
+										<tbody class="gengo-modal__tbody">
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">宣統</td>
+												<td class="gengo-modal__td">1908</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="宣統">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">光緒</td>
+												<td class="gengo-modal__td">1875</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="光緒">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">同治</td>
+												<td class="gengo-modal__td">1862</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="同治">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">咸豊</td>
+												<td class="gengo-modal__td">1851</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="咸豊">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">道光</td>
+												<td class="gengo-modal__td">1821</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="道光">選択</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<div class="gengo-modal__item" data-gengo-type="cho">
+							<div class="gengo-modal__table-wrap">
+								<table class="gengo-modal__table">
+									<thead>
+										<tr>
+											<th class="gengo-modal__th">元号名称</th>
+											<th class="gengo-modal__th">開始西暦年</th>
+											<th class="gengo-modal__th"> </th>
+										</tr>
+									</thead>
+								</table>
+
+								<div class="gengo-modal__tbody-wrap">
+									<table class="gengo-modal__table">
+										<tbody class="gengo-modal__tbody">
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">大韓光武</td>
+												<td class="gengo-modal__td">1897</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="大韓光武">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">建陽</td>
+												<td class="gengo-modal__td">1896</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="建陽">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">開国</td>
+												<td class="gengo-modal__td">1894</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="開国">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">景宗</td>
+												<td class="gengo-modal__td">975</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="景宗">選択</button>
+												</td>
+											</tr>
+											<tr class="gengo-modal__tr">
+												<td class="gengo-modal__td gengo-modal__td--label">建元</td>
+												<td class="gengo-modal__td">918</td>
+												<td class="gengo-modal__td">
+													<button type="button" class="gengo-modal__select-button" data-gengo-label="建元">選択</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+						<button type="button" class="gengo-modal__close-button">閉じる</button>
+					</div>
+				</div>
+			</div>
+			<!-- //gengo-modal -->
+
+			<!-- //content -->
+		</main> <!-- //#mainContent -->
+
+		<!-- footer -->
+		<footer id="commonFooter" class="commonFooter"></footer>
+		<!-- 構築テスト用include -->
+		<script type="module">
+			fetch('./includes/footer.html')
+				.then(r => r.text())
+				.then(html => {
+					const range = document.createRange();
+					const fragment = range.createContextualFragment(html);
+					const footer = fragment.querySelector('footer#commonFooter');
+					if (footer) {
+						const target = document.getElementById('commonFooter');
+						if (target) target.replaceWith(footer);
+					}
+				});
+		</script>
+		<!-- //構築テスト用include -->
+		<!-- //footer -->
+
+	</div> <!-- //#page-wrapper -->
+
+	<!-- script -->
+	<script src="./bundles/web/js/jQuery.js"></script>
+	<script src="./bundles/web/js/cookieConsent.js"></script>
+	<script src="./bundles/web/js/swiper-bundle.min.js"></script>
+	<script src="./bundles/web/js/common.js"></script>
+
+	<script src="./bundles/web/js/archive-finder.js"></script>
+</body>
+
+</html>

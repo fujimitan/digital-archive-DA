@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー</title>
+  <link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+  <link rel="stylesheet" href="./bundles/web/css/privacy.css" type="text/css">
+</head>
+<body>
+  <div id="page-wrapper" class="page-wrapper">
+    <header id="commonHeader" class="commonHeader"></header>
+    <script type="module">
+      fetch('./includes/header.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const header = fragment.querySelector('header#commonHeader');
+          if (header) {
+            const target = document.getElementById('commonHeader');
+            if (target) target.replaceWith(header);
+          }
+        });
+    </script>
+    <main id="mainContent" class="mainContent hidden-box">
+      <div class="inner pb-100">
+        <section>
+          <div class="inner-box-l pt-30 mb-40 mb-50-sp">
+            <ol class="bread-crumb">
+              <li class="bread-crumb__item"><a href="#">トップ</a></li>
+              <li class="bread-crumb__item"><span class="current" aria-current="page">プライバシーポリシー</span></li>
+            </ol>
+          </div>
+          <div class="inner-box-m">
+            <div class="pb-20 mb-50 mb-30-sp bd-bb">
+              <h2 class="fw-700 fz20"><span>プライバシーポリシー</span></h2>
+            </div>
+            <section class="mb-60">
+              <h3 class="fw-700 mb-10 color-key">基本的考え方</h3>
+              <p class="mb-10 fw-300">
+                国立公文書館では、当ホームページ等において提供するサービス（各種の情報提供、ご意見の受付等）の円滑な運営に必要な範囲で、当ホームページ（※以下対応するもの）及びMicrosoft社が提供するサービス「Microsoft Forms（以下、「Forms」）」を用いて情報を収集しています。収集した情報は、利用目的の範囲内で適切に取り扱います。<br>
+                ※「www.archives.go.jp/」「www.digital.archives.go.jp/」「www.jacar.go.jp/」
+              </p>
+              <h3 class="fw-700 mb-10 color-key mt-30">収集する情報の範囲及び利用目的</h3>
+              <ul class="mb-10 fw-300">
+                <li>(1) 当ホームページでは、インターネットドメイン名、IPアドレス、当ホームページの閲覧等の情報を自動的に収集します。収集した情報は、当ホームページが提供するサービスを円滑に運用するための参考にして利用します。</li>
+                <li>(2) 当ホームページ上の各コーナーにおいて収集する情報の範囲及び利用目的については、各コーナー等において明記します。</li>
+                <li>(3) 当ホームページでは、Googleの提供するアクセス解析サービス「Googleアナリティクス」を使用しています。これはデータ収集の一部にCookieを利用していますが、個人を特定するものではありません。Googleアナリティクスのデータ収集、処理の仕組みについては、「Googleポリシーと規約」（※別ウィンドウ）をご参照ください。</li>
+                <li>(4) 各種のご意見・お問い合わせ、イベント・講座参加型アンケートの提供等に、Formsを利用します。Formsを利用して作成したフォームに回答いただいた内容については、Microsoft社が提供するデータセンターにおいて管理されます。<br>
+                  Formsの利用については、Microsoft社のプライバシーポリシー（※別ウィンドウ）によって定められています。</li>
+              </ul>
+              <h3 class="fw-700 mb-10 color-key mt-30">利用及び提供の制限</h3>
+              <ul class="mb-10 fw-300">
+                <li>(1) 国立公文書館では、法令に基づく開示要請があった場合、不正アクセス、脅迫等の違法行為があった場合その他特別の理由のある場合を除き、収集した情報を第三者に提供することはありません。</li>
+                <li>(2) 国立公文書館では、個人情報の漏えい、滅失又はき損の防止その他個人情報の適切な管理のために必要な措置を講じています。</li>
+                <li>(3) 収集した情報のうち、個人情報であるものについては、利用目的の範囲内でのみ利用し、文書館業務に提供いたしません。</li>
+              </ul>
+              <h3 class="fw-700 mb-10 color-key mt-30">安全確保の措置</h3>
+              <p class="mb-10 fw-300">
+                国立公文書館は、情報収集に際しては、収集した情報を適切に管理し、漏えいや滅失又はき損のないよう、必要な措置を講じます。
+              </p>
+              <h3 class="fw-700 mb-10 color-key mt-30">自己に関する情報の開示</h3>
+              <p class="mb-10 fw-300">
+                当ホームページ及びFormsでは、氏名、生年月日その他一般的に個人を識別できる情報は、ご意見フォーム、アンケート及びイベントの参加登録等を通じて提供いただいた場合に限り収集しておりません。<br>
+                自己に関する情報の開示の請求については、該当する機関・ホームページを管理する担当部署へご連絡ください。
+              </p>
+              <h3 class="fw-700 mb-10 color-key mt-30">適用範囲</h3>
+              <p class="mb-10 fw-300">
+                本プライバシーポリシーは、国立公文書館が当ホームページ及びFormsを利用して収集した情報にしてのみ適用されます。関係府省等における情報の取扱いについては、それぞれの機関の責任において行われることになります。
+              </p>
+              <h3 class="fw-700 mb-10 color-key mt-30">留意事項</h3>
+              <p class="mb-10 fw-300">
+                (1) 当ホームページに設置されたソーシャルネットワーキングサービス（SNS）は、当該SNSの「ボタン」等が設置されたウェブサイトを閲覧した場合、当該「ボタン」等に関する情報が当該SNS運営会社に送信されることがあります。ユーザーがアクセスしているサイト等の情報が自動で送信されていることがあります。<br>
+                (2) 個人情報保護委員会のホームページ「SNSの利用者のみなさまへの留意事項」（※別ウィンドウ）をご参照ください。<br>
+                (3) またホームページで利用している他のソーシャルメディア予等のサービスのプライバシーポリシー等は、各事業者のホームページ等でご確認ください。
+              </p>
+              <h3 class="fw-700 mb-10 color-key mt-30">その他</h3>
+              <p class="mb-10 fw-300">
+                国立公文書館では、本プライバシーポリシーを改定することがあります。改定する場合は、当ホームページでお知らせします。
+              </p>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer id="commonFooter" class="commonFooter"></footer>
+    <script type="module">
+      fetch('./includes/footer.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const footer = fragment.querySelector('footer#commonFooter');
+          if (footer) {
+            const target = document.getElementById('commonFooter');
+            if (target) target.replaceWith(footer);
+          }
+        });
+    </script>
+  </div>
+  <script src="./bundles/web/js/jQuery.js"></script>
+  <script src="./bundles/web/js/cookieConsent.js"></script>
+  <script src="./bundles/web/js/swiper-bundle.min.js"></script>
+  <script src="./bundles/web/js/common.js"></script>
+</body>
+</html> 

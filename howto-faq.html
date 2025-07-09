@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>よくあるご質問</title>
+  <link rel="stylesheet" href="./bundles/web/css/swiper-bundle.min.css" type="text/css">
+  <link rel="stylesheet" href="./bundles/web/css/howto.css" type="text/css">
+</head>
+<body>
+  <div id="page-wrapper" class="page-wrapper">
+    <header id="commonHeader" class="commonHeader"></header>
+    <script type="module">
+      fetch('./includes/header.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const header = fragment.querySelector('header#commonHeader');
+          if (header) {
+            const target = document.getElementById('commonHeader');
+            if (target) target.replaceWith(header);
+          }
+        });
+    </script>
+    <main id="mainContent" class="mainContent hidden-box">
+      <div class="inner pb-100">
+        <section>
+          <div class="inner-box-l pt-30 mb-40 mb-50-sp">
+            <ol class="bread-crumb">
+              <li class="bread-crumb__item"><a href="#">トップ</a></li>
+              <li class="bread-crumb__item"><span class="current" aria-current="page">よくあるご質問</span></li>
+            </ol>
+          </div>
+          <div class="inner-box-m">
+            <nav class="page-nav mb-50">
+              <a href="first-time.html">初めての方へ</a>
+              <a href="howto-usage.html">ご利用方法</a>
+              <a href="#" class="is-current">よくあるご質問</a>
+              <a href="howto-secondary-use.html">データの二次利用</a>
+              <a href="howto-integration.html">横断検索の連携</a>
+              <a href="howto-materials.html">関連資料</a>
+            </nav>
+            <div class="pb-20 mb-50 mb-30-sp bd-bb">
+              <h2 class="fw-700 fz20"><span>よくあるご質問</span></h2>
+            </div>
+            <section class="mb-60">
+              <h3 class="fw-700 mb-30 color-key">よくあるご質問</h3>
+              <p class="mb-10 fw-300">ダミーテキストダミーテキストダミーテキスト。</p>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer id="commonFooter" class="commonFooter"></footer>
+    <script type="module">
+      fetch('./includes/footer.html')
+        .then(r => r.text())
+        .then(html => {
+          const range = document.createRange();
+          const fragment = range.createContextualFragment(html);
+          const footer = fragment.querySelector('footer#commonFooter');
+          if (footer) {
+            const target = document.getElementById('commonFooter');
+            if (target) target.replaceWith(footer);
+          }
+        });
+    </script>
+  </div>
+  <script src="./bundles/web/js/jQuery.js"></script>
+  <script src="./bundles/web/js/cookieConsent.js"></script>
+  <script src="./bundles/web/js/swiper-bundle.min.js"></script>
+  <script src="./bundles/web/js/common.js"></script>
+</body>
+</html> 
