@@ -408,6 +408,23 @@
 
   &__item {
     border-top: torem(0.25) solid var(--key-color);
+
+    &.is-current {
+      position: relative;
+      padding-left: torem(10);
+      padding-right: torem(10);
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: torem(5);
+        left: 0;
+        width: 100%;
+        height: calc(100% - torem(10));
+        background-color: var(--key-hover-color);
+        border-radius: torem(5);
+      }
+    }
   }
 
   &__item-body {

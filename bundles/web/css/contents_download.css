@@ -1557,6 +1557,21 @@ html[data-theme=dark] .sidebar-tree__content {
 .sidebar-tree__item {
   border-top: 0.0178571429rem solid var(--key-color);
 }
+.sidebar-tree__item.is-current {
+  position: relative;
+  padding-left: 0.7142857143rem;
+  padding-right: 0.7142857143rem;
+}
+.sidebar-tree__item.is-current:before {
+  content: "";
+  position: absolute;
+  top: 0.3571428571rem;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 0.7142857143rem);
+  background-color: var(--key-hover-color);
+  border-radius: 0.3571428571rem;
+}
 .sidebar-tree__item-body {
   display: flex;
   align-items: center;
