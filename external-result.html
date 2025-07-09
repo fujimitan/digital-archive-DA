@@ -2198,22 +2198,11 @@
 		</main> <!-- //#mainContent -->
 
 		<!-- footer -->
-		<footer id="commonFooter" class="commonFooter"></footer>
-		<!-- 構築テスト用include -->
-		<script type="module">
-			fetch('./includes/footer.html')
-				.then(r => r.text())
-				.then(html => {
-					const range = document.createRange();
-					const fragment = range.createContextualFragment(html);
-					const footer = fragment.querySelector('footer#commonFooter');
-					if (footer) {
-						const target = document.getElementById('commonFooter');
-						if (target) target.replaceWith(footer);
-					}
-				});
-		</script>
-		<!-- //構築テスト用include -->
+		<footer id="commonFooter" class="commonFooter commonFooter--small">
+			<small class="commonFooter__credit">
+				Copyright &copy; NATIONAL ARCHIVES OF JAPAN. All Rights Reserved
+			</small>
+		</footer>
 		<!-- //footer -->
 
 	</div> <!-- //#page-wrapper -->

@@ -4432,6 +4432,37 @@ html[data-theme=dark] .commonFooter .toTop__icon {
     padding: 2.4285714286rem 0 0;
   }
 }
+.commonFooter--small {
+  padding: 1.0714285714rem 1.4285714286rem;
+}
+@media all and (max-width: 740px) {
+  .commonFooter--small {
+    padding: 1.0714285714rem 1.4285714286rem;
+    z-index: 50;
+  }
+}
+.commonFooter--small .commonFooter__credit {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+@media all and (max-width: 740px) {
+  .commonFooter--small .commonFooter__credit {
+    padding: 0;
+    border-top: 0;
+    margin-top: 0;
+  }
+}
+@media all and (max-width: 740px) {
+  .commonFooter--small .commonFooter__credit {
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    left: 0;
+  }
+}
 html[data-theme=dark] .commonFooter {
   border-top-color: var(--gray-color);
 }
