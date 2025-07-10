@@ -8,6 +8,15 @@ jQuery(document).ready(function ($) {
   //fv-slide
   let sliderInstances = [];
 
+  //fv-scroll
+  $(window).on('scroll', function () {
+    if ($(window).scrollTop() > 100) {
+      $('.top-fv__scroll').addClass('is-hidden');
+    } else {
+      $('.top-fv__scroll').removeClass('is-hidden');
+    }
+  });
+
   // 無限スライダーの初期化
   function initTopFvSliders() {
     const slideWrap = document.querySelector('.top-fv__slideWrap');
@@ -87,7 +96,7 @@ jQuery(document).ready(function ($) {
     console.log(`Slider ${index}: Final items count: ${finalItems.length} (original: ${originalCount}, clones: ${finalItems.length - originalCount})`);
 
     // アニメーション設定
-    const duration = 50000; // 50秒
+    const duration = 100000; // 100秒
     let totalWidth = 0;
     for (let i = 0; i < originalCount; i++) {
       totalWidth += originalItems[i].offsetWidth;
