@@ -1248,7 +1248,7 @@
   &.is-thumbnail {
     .archive-result-table__body {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(torem(200), 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: torem(25) torem(20);
 
       @include media(sp) {

@@ -3151,7 +3151,7 @@ html[data-theme=dark] .archive-result-table:not(.is-thumbnail) .result-excerpt-o
 }
 .archive-result-table.is-thumbnail .archive-result-table__body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14.2857142857rem, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.7857142857rem 1.4285714286rem;
 }
 @media all and (max-width: 740px) {
