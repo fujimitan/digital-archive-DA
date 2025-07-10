@@ -669,7 +669,9 @@
   overflow-x: hidden;
   overflow-y: auto;
   display: none;
-
+  @include media(spmin){ 
+    border-top: 0;
+  }
   &.is-active {
     display: block;
   }
@@ -792,7 +794,9 @@
   overflow-x: hidden;
   overflow-y: auto;
   display: none;
-
+  @include media(spmin){ 
+    border-top: 0;
+  }
   &.is-active {
     display: block;
   }
@@ -858,7 +862,9 @@
   overflow-x: hidden;
   overflow-y: auto;
   display: none;
-
+  @include media(spmin){
+    border-top: 0;
+  }
   &.is-active {
     display: block;
   }
@@ -950,7 +956,9 @@
   border: torem(1) solid var(--key-color);
   overflow: hidden;
   display: none;
-
+  @include media(spmin){
+    border-top: 0;
+  }
   &.is-active {
     display: flex;
     flex-direction: column;
@@ -1207,7 +1215,9 @@
   border: torem(1) solid var(--key-color);
   overflow: hidden;
   display: none;
-
+  @include media(spmin){
+    border-top: 0;
+  }
   &.is-active {
     display: flex;
     flex-direction: column;
@@ -1445,7 +1455,9 @@
   border: torem(1) solid var(--key-color);
   overflow: hidden;
   display: none;
-
+  @include media(spmin){
+    border-top: 0;
+  }
   &.is-active {
     display: flex;
     flex-direction: column;

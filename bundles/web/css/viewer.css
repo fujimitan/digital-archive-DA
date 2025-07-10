@@ -5649,6 +5649,11 @@ html[data-theme=dark] .p-viewer-select__icon img, html[data-theme=dark] .p-viewe
   overflow-y: auto;
   display: none;
 }
+@media all and (min-width: 741px) {
+  .p-viewer-thumbnail {
+    border-top: 0;
+  }
+}
 .p-viewer-thumbnail.is-active {
   display: block;
 }
@@ -5796,6 +5801,11 @@ html[data-theme=dark] .p-viewer-select__icon img, html[data-theme=dark] .p-viewe
   overflow-y: auto;
   display: none;
 }
+@media all and (min-width: 741px) {
+  .p-viewer-detail {
+    border-top: 0;
+  }
+}
 .p-viewer-detail.is-active {
   display: block;
 }
@@ -5854,6 +5864,11 @@ html[data-theme=dark] .p-viewer-detail__label {
   overflow-x: hidden;
   overflow-y: auto;
   display: none;
+}
+@media all and (min-width: 741px) {
+  .p-viewer-translate {
+    border-top: 0;
+  }
 }
 .p-viewer-translate.is-active {
   display: block;
@@ -5974,6 +5989,11 @@ html[data-theme=dark] .p-viewer-translate__text-btn.is-current {
   border: 0.0714285714rem solid var(--key-color);
   overflow: hidden;
   display: none;
+}
+@media all and (min-width: 741px) {
+  .p-viewer-download {
+    border-top: 0;
+  }
 }
 .p-viewer-download.is-active {
   display: flex;
@@ -6272,6 +6292,11 @@ html[data-theme=dark] .p-viewer-download__btn--print {
   overflow: hidden;
   display: none;
 }
+@media all and (min-width: 741px) {
+  .p-viewer-download2 {
+    border-top: 0;
+  }
+}
 .p-viewer-download2.is-active {
   display: flex;
   flex-direction: column;
@@ -6542,6 +6567,11 @@ html[data-theme=dark] .p-viewer-download2__btn--download {
   border: 0.0714285714rem solid var(--key-color);
   overflow: hidden;
   display: none;
+}
+@media all and (min-width: 741px) {
+  .p-viewer-tree {
+    border-top: 0;
+  }
 }
 .p-viewer-tree.is-active {
   display: flex;
