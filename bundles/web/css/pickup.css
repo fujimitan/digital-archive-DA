@@ -3900,7 +3900,11 @@ html[data-theme=dark] .external-finder-institution__list-item {
   position: relative;
   background-color: #EBEBEB;
   z-index: 200;
-  height: 1.7857142857rem;
+}
+@media all and (min-width: 741px) {
+  .commonHeader__light-dark {
+    height: 1.7857142857rem;
+  }
 }
 .commonHeader__light-dark:after {
   content: "";
@@ -3936,7 +3940,6 @@ html[data-theme=dark] .commonHeader__light-dark:after {
     border: 0.0357142857rem solid #C4C4C4;
     border-right: 0;
     background-color: #fff;
-    height: 2.8571428571rem;
   }
   html[data-theme=dark] .commonHeader__light-dark {
     background-color: #444;

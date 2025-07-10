@@ -58,8 +58,10 @@
     position: relative;
     background-color: #EBEBEB;
     z-index: 200;
-    height: torem(25);
-
+    
+    @include media(spmin) {
+      height: torem(25);
+    }
 
     &:after {
       content: '';
@@ -93,7 +95,6 @@
       border: torem(0.5) solid #C4C4C4;
       border-right: 0;
       background-color: #fff;
-      height: torem(40);
 
       @include dark {
         background-color: #444;
