@@ -12,7 +12,7 @@
     align-items: center;
     text-align: center;
     color: var(--main-color);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     line-height: 1;
     @include fzrem(10);
     gap: torem(10);
@@ -337,7 +337,7 @@
     flex-direction: column;
     gap: 1em;
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     min-width: torem(175);
 
     &__link {
@@ -403,7 +403,7 @@
 
   &__credit {
     @include fzrem(10);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     position: relative;
 
     @include media(sp) {

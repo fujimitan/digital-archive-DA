@@ -249,7 +249,7 @@
   width: 100%;
   display: block;
   @include fzrem(12);
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   padding: 0.5em 0.75em;
 
   &.is-suggest {
@@ -267,7 +267,7 @@
   width: 100%;
   display: block;
   @include fzrem(12);
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   padding: 0.5em 0.75em;
   text-align: center;
 
@@ -347,7 +347,7 @@
   border: torem(1) solid var(--main-color);
   border-radius: torem(5);
   @include fzrem(12);
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   padding: 0.5em 0.4em 0.5em 2em;
   position: relative;
   cursor: pointer;
@@ -426,7 +426,7 @@
     width: 100%;
     display: block;
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     padding: 0.5em 1.25em;
     text-align: center;
 

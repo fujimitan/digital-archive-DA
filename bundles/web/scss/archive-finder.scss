@@ -74,7 +74,7 @@
   &__check-all {
     @include button-reset;
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     border: torem(1) solid var(--key-color);
     border-radius: torem(5);
     background-color: var(--bg2-color);
@@ -221,7 +221,7 @@
     width: 100%;
     display: block;
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     padding: 0.4em 1.25em;
     text-align: center;
     position: relative;
@@ -283,7 +283,7 @@
     width: 100%;
     display: block;
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     padding: 0.4em 1.25em;
     text-align: center;
     position: relative;
@@ -345,7 +345,7 @@
     border-radius: torem(5);
     display: block;
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     padding: 0.4em 0.75em;
     text-align: center;
     min-width: torem(136);
@@ -437,7 +437,7 @@
 
   &__date-separator {
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     flex-shrink: 0;
     width: 3em;
     text-align: center;
@@ -487,7 +487,7 @@
   &__request-number-separator {
     flex-shrink: 0;
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     width: 3em;
     text-align: center;
   }

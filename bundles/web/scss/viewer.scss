@@ -221,7 +221,7 @@
 
     &-text {
       @include fzrem(12);
-      font-weight: 500;
+      font-weight: $font-weight-medium;
     }
   }
 
@@ -270,7 +270,7 @@
       gap: torem(4);
       padding: torem(6);
       @include fzrem(10);
-      font-weight: 600;
+      font-weight: $font-weight-medium;
       background: var(--bg-color);
       color: var(--main-color);
       border-radius: torem(4);
@@ -328,7 +328,7 @@
   &__pager-btn {
     padding: torem(4) torem(16);
     @include fzrem(12);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     border: none;
     background: var(--key-color);
     color: #fff;
@@ -537,7 +537,7 @@
 
   &__item-text {
     @include fzrem(8);
-    font-weight: 600;
+    font-weight: $font-weight-medium;
     text-align: center;
   }
 
@@ -1121,7 +1121,7 @@
 
     span {
       @include fzrem(12);
-      font-weight: 500;
+      font-weight: $font-weight-medium;
     }
 
     .cmn-button {
@@ -1378,7 +1378,7 @@
 
     span {
       @include fzrem(12);
-      font-weight: 500;
+      font-weight: $font-weight-medium;
     }
 
     .cmn-button {
@@ -2025,7 +2025,7 @@
 
     &__item-text {
       @include fzrem(8);
-      font-weight: 600;
+      font-weight: $font-weight-medium;
       text-align: center;
       line-height: 1.2;
     }

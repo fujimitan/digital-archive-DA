@@ -38,7 +38,7 @@
     border-bottom: 0;
     padding: torem(10) torem(10);
     color: var(--key-color);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     cursor: pointer;
     text-align: center;
     line-height: 1.4;
@@ -211,7 +211,7 @@
     border-radius: torem(3);
     padding: torem(4) torem(6);
     @include fzrem(14);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     color: var(--main-color);
     @include trahv;
     cursor: pointer;
@@ -339,7 +339,7 @@
 
   &__description {
     @include fzrem(14);
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     line-height: 1.6;
     margin: 0;
 
@@ -440,7 +440,7 @@
   }
 
   &__description {
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     a{
       color: var(--link-color);
       text-decoration: underline;

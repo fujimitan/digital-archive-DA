@@ -51,7 +51,7 @@
     border: torem(1) solid #fff;
     border-radius: torem(5);
     text-align: center;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
     padding: 0.8em;
     color: #fff;
     @include trahv;

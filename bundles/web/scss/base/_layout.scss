@@ -50,8 +50,8 @@
 .bread-crumb {
   display: flex;
   flex-wrap: wrap;
-  font-size: torem(10);
-  font-weight: 500;
+  font-size: torem(12);
+  font-weight: $font-weight-medium;
 
   &__item {
     display: flex;

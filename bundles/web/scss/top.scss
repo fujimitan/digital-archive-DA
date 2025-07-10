@@ -423,7 +423,7 @@
         padding: 0.5em;
         min-height: torem(60);
         border-radius: torem(5);
-        font-weight: 500;
+        font-weight: $font-weight-medium;
 
         @include hoverLike {
           background-color: var(--key-hover-color);
@@ -500,7 +500,7 @@
     }
 
     &__description {
-      font-weight: 500;
+      font-weight: $font-weight-medium;
       margin-bottom: 1.5em;
       display: -webkit-box;
       -webkit-line-clamp: 3;
@@ -513,7 +513,7 @@
       max-width: torem(120);
       width: 100%;
       @include fzrem(12);
-      font-weight: 500;
+      font-weight: $font-weight-medium;
       text-align: center;
       color: var(--main-color);
       border: torem(1) solid var(--main-color);
