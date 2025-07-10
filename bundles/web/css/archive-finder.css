@@ -5305,11 +5305,13 @@ html[data-theme=dark] .cookie-consent__button {
 .archive-finder-form-container__date-range {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 .archive-finder-form-container__date-object {
   display: flex;
   align-items: center;
   gap: 0.7142857143rem;
+  flex: 1;
 }
 .archive-finder-form-container__date-object .cmn-input {
   min-width: 3em;
