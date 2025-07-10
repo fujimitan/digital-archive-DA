@@ -5133,6 +5133,9 @@ html[data-theme=dark] .top-fv__logo__text__sub {
   display: flex;
   width: 100%;
 }
+.top-fv__search .suggest-list {
+  border-color: var(--key-color);
+}
 .top-fv__search__input {
   appearance: none;
   border: none;

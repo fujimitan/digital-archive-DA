@@ -248,6 +248,9 @@
     display: flex;
     width: 100%;
 
+    .suggest-list {
+      border-color: var(--key-color);
+    }
 
     &__input {
       @include input-reset;
@@ -383,17 +386,19 @@
     align-items: center;
     gap: torem(10);
     @include trahv;
-    transition: opacity 0.3s ease,visibility 0.3s ease;
-    @include media(sp){
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    @include media(sp) {
       display: none;
     }
-    &.is-hidden{
+
+    &.is-hidden {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
     }
 
-    &__text{
+    &__text {
       rotate: 180deg;
       @include fzrem(10);
     }

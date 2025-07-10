@@ -5003,7 +5003,7 @@ html[data-theme=dark] .cookie-consent__button {
   content: "全解除";
 }
 .archive-finder-form-container__tool-tip {
-  width: 0.7142857143rem;
+  width: 0.9285714286rem;
   aspect-ratio: 1/1;
   color: var(--key-color);
   flex-shrink: 0;
