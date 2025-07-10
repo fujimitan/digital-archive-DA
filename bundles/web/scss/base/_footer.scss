@@ -320,7 +320,7 @@
       align-items: center;
 
       a {
-        height: torem(18);
+        height: torem(24);
         display: block;
         @include trahv;
       }
@@ -330,7 +330,15 @@
         width: auto;
       }
     }
+    &__item{
+      &:first-child{
+        a{
+          height: torem(28);
+        }
+      }
+    }
   }
+
 
   &__homepageLink {
     display: flex;

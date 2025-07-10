@@ -4686,7 +4686,7 @@ html[data-theme=dark] .commonFooter {
   align-items: center;
 }
 .commonFooter__sns__list a {
-  height: 1.2857142857rem;
+  height: 1.7142857143rem;
   display: block;
   transition: opacity 0.3s ease 0s;
   transition: all 0.2s ease 0s;
@@ -4707,6 +4707,9 @@ html[data-theme=dark] .commonFooter {
 .commonFooter__sns__list img {
   height: 100%;
   width: auto;
+}
+.commonFooter__sns__item:first-child a {
+  height: 2rem;
 }
 .commonFooter__homepageLink {
   display: flex;
