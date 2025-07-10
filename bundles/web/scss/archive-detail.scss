@@ -115,6 +115,11 @@
     align-items: center;
     gap: torem(10);
   }
+
+  &__heading-ttl {
+    @include fzrem(16);
+    font-weight: 600;
+  }
 }
 
 .archive-detail-tabs {

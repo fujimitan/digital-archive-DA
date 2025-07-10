@@ -768,9 +768,9 @@
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
     @include fzrem(8);
-    text-align: center;
     line-height: 1.2;
     padding: torem(2) torem(4);
+    word-break: break-all;
 
     @include media(sp) {
       @include fzrem(6);
@@ -1480,9 +1480,7 @@
   }
 
   // ヘッダー
-  &__header {
-
-  }
+  &__header {}
 
   &__title {
     @include button-reset;
@@ -1536,7 +1534,7 @@
   }
 
   // 最上層の最初のアイテムのborder-top削除
-  &__content > .sidebar-tree__list > .sidebar-tree__item:first-child {
+  &__content>.sidebar-tree__list>.sidebar-tree__item:first-child {
     border-top: 0;
   }
 
@@ -2082,7 +2080,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   &__thumbnail {
     max-width: torem(650);
     width: 100%;

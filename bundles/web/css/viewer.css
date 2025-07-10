@@ -3669,7 +3669,7 @@ html[data-theme=dark] .text-highlight {
   }
 }
 .external-finder-institution__list {
-  font-size: 0.7857142857rem;
+  font-size: 0.9285714286rem;
   font-weight: 500;
   display: flex;
   flex-direction: column;
@@ -3725,7 +3725,7 @@ html[data-theme=dark] .external-finder-institution__list-item {
   position: relative;
   margin-top: 0.3571428571rem;
   border-top: 0.0178571429rem solid var(--gray-color);
-  font-size: 0.7142857143rem;
+  font-size: 0.8571428571rem;
   display: none;
 }
 .external-finder-institution__child-list .external-finder-institution__list-item-body {
@@ -5772,9 +5772,9 @@ html[data-theme=dark] .p-viewer-select__icon img, html[data-theme=dark] .p-viewe
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 0.5714285714rem;
-  text-align: center;
   line-height: 1.2;
   padding: 0.1428571429rem 0.2857142857rem;
+  word-break: break-all;
 }
 @media all and (max-width: 740px) {
   .p-viewer-thumbnail__item-id {

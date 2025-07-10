@@ -1749,7 +1749,7 @@
   }
 
   &__list {
-    @include fzrem(11);
+    @include fzrem(13);
     font-weight: 500;
     display: flex;
     flex-direction: column;
@@ -1816,7 +1816,7 @@
     position: relative;
     margin-top: torem(5);
     border-top: torem(0.25) solid var(--gray-color);
-    @include fzrem(10);
+    @include fzrem(12);
     display: none;
 
     .external-finder-institution__list-item-body {
