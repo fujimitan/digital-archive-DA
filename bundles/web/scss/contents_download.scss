@@ -76,7 +76,7 @@
 // ツリー表示（固定）
 .contents-download-tree-title {
   flex-shrink: 0;
-  @include fzrem(12);
+  @include fzrem(14);
   font-weight: 600;
   color: var(--main-color);
   padding: torem(10) torem(15);
@@ -89,6 +89,9 @@
   overflow-y: auto;
   background: var(--bg2-color);
   padding: torem(5) torem(15);
+  >.contents-download-tree__list >.contents-download-tree__item + .contents-download-tree__item {
+    padding-top: torem(10);
+  }
 }
 
 // ツリー表示用のスタイル
@@ -142,7 +145,7 @@
 
   &__label {
     font-weight: 700;
-    @include fzrem(12);
+    @include fzrem(14);
     flex: 1;
     display: flex;
     align-items: center;
